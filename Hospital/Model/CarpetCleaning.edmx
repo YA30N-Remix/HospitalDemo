@@ -1,0 +1,1167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CarpetCleaningModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblCarpetPrice">
+          <Key>
+            <PropertyRef Name="CarpetPriceID" />
+          </Key>
+          <Property Name="CarpetPriceID" Type="int" Nullable="false" />
+          <Property Name="Year" Type="int" Nullable="false" />
+          <Property Name="Shur" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Darkesh" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Gayegh" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Shiraze" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Charm" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Hasiri" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Geytani" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Pardakht" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Description" Type="ntext" Nullable="false" />
+          <Property Name="RegisterDate" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblCarpets">
+          <Key>
+            <PropertyRef Name="CarpetID" />
+          </Key>
+          <Property Name="CarpetID" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Width" Type="float" Nullable="false" />
+          <Property Name="Hight" Type="float" Nullable="false" />
+          <Property Name="Area" Type="float" Nullable="false" />
+          <Property Name="Shur" Type="float" Nullable="false" />
+          <Property Name="Darkesh" Type="float" Nullable="false" />
+          <Property Name="Gayegh" Type="float" Nullable="false" />
+          <Property Name="Shiraze" Type="float" Nullable="false" />
+          <Property Name="Charm" Type="float" Nullable="false" />
+          <Property Name="Hasiri" Type="float" Nullable="false" />
+          <Property Name="Geytani" Type="float" Nullable="false" />
+          <Property Name="Pardakht" Type="float" Nullable="false" />
+          <Property Name="Description" Type="ntext" Nullable="false" />
+          <Property Name="RegisterDate" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblChecks">
+          <Key>
+            <PropertyRef Name="CheckID" />
+          </Key>
+          <Property Name="CheckID" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CheckTypeID" Type="smallint" Nullable="false" />
+          <Property Name="CheckSerial" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CheckDate" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="CheckDueDate" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="BankName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Reminder" Type="bit" Nullable="false" />
+          <Property Name="ReminderDay" Type="int" Nullable="false" />
+          <Property Name="ReminderDate" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Description" Type="ntext" Nullable="false" />
+          <Property Name="RegisterDate" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblCustomerBuy">
+          <Key>
+            <PropertyRef Name="CustomerBuyID" />
+          </Key>
+          <Property Name="CustomerBuyID" Type="int" Nullable="false" />
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="Description" Type="ntext" Nullable="false" />
+          <Property Name="RegisterDate" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblCustomerBuyList">
+          <Key>
+            <PropertyRef Name="CustomerBuyListID" />
+          </Key>
+          <Property Name="CustomerBuyListID" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CustomerBuyID" Type="int" Nullable="false" />
+          <Property Name="CarpetID" Type="int" Nullable="false" />
+          <Property Name="Count" Type="int" Nullable="false" />
+          <Property Name="Shur" Type="float" Nullable="false" />
+          <Property Name="Darkesh" Type="float" Nullable="false" />
+          <Property Name="Gayegh" Type="float" Nullable="false" />
+          <Property Name="Shiraze" Type="float" Nullable="false" />
+          <Property Name="Charm" Type="float" Nullable="false" />
+          <Property Name="Hasiri" Type="float" Nullable="false" />
+          <Property Name="Geytani" Type="float" Nullable="false" />
+          <Property Name="Pardakht" Type="float" Nullable="false" />
+          <Property Name="ShurPrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="DarkeshPrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="GayeghPrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ShirazePrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CharmPrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="HasiriPrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="GeytaniPrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="PardakhtPrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="SumPrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Discount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="FactorStatus" Type="smallint" Nullable="false" />
+          <Property Name="FactorDate" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Description" Type="ntext" Nullable="false" />
+          <Property Name="RegisterDate" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblCustomers">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CustomerTypeID" Type="smallint" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Tell" Type="nvarchar" MaxLength="13" Nullable="false" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="13" Nullable="false" />
+          <Property Name="Description" Type="ntext" Nullable="false" />
+          <Property Name="Active" Type="smallint" Nullable="false" />
+          <Property Name="RegisterDate" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblDocuments">
+          <Key>
+            <PropertyRef Name="DocumentID" />
+          </Key>
+          <Property Name="DocumentID" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="DocumetnTypeID" Type="smallint" Nullable="false" />
+          <Property Name="DocumentDate" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="PriceTypeID" Type="smallint" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Discount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CheckID" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="Description" Type="ntext" Nullable="false" />
+          <Property Name="RegisterDate" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblFactors">
+          <Key>
+            <PropertyRef Name="FactorID" />
+          </Key>
+          <Property Name="FactorID" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="FactorTypeID" Type="smallint" Nullable="false" />
+          <Property Name="FactorDate" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CustomerMobile" Type="nvarchar" MaxLength="11" Nullable="false" />
+          <Property Name="Description" Type="ntext" Nullable="false" />
+          <Property Name="RegisterDate" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblFactorsList">
+          <Key>
+            <PropertyRef Name="FactorListID" />
+          </Key>
+          <Property Name="FactorListID" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="FactorID" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CustomerBuyListID" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CarpetID" Type="int" Nullable="false" />
+          <Property Name="Count" Type="int" Nullable="false" />
+          <Property Name="Shur" Type="float" Nullable="false" />
+          <Property Name="Darkesh" Type="float" Nullable="false" />
+          <Property Name="Gayegh" Type="float" Nullable="false" />
+          <Property Name="Shiraze" Type="float" Nullable="false" />
+          <Property Name="Charm" Type="float" Nullable="false" />
+          <Property Name="Hasiri" Type="float" Nullable="false" />
+          <Property Name="Geytani" Type="float" Nullable="false" />
+          <Property Name="Pardakht" Type="float" Nullable="false" />
+          <Property Name="ShurPrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="DarkeshPrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="GayeghPrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ShirazePrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CharmPrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="HasiriPrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="GeytaniPrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="PardakhtPrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="SumPrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Discount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Description" Type="ntext" Nullable="false" />
+          <Property Name="RegisterDate" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblLog">
+          <Key>
+            <PropertyRef Name="LogID" />
+          </Key>
+          <Property Name="LogID" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="LogTypeID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="LogContent" Type="ntext" Nullable="false" />
+          <Property Name="TableName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TableKeyID" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="LogDate" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="LogTime" Type="nvarchar" MaxLength="8" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblLogType">
+          <Key>
+            <PropertyRef Name="LogTypeID" />
+          </Key>
+          <Property Name="LogTypeID" Type="int" Nullable="false" />
+          <Property Name="LogTypeName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="RegTypeID" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblNotes">
+          <Key>
+            <PropertyRef Name="NoteID" />
+          </Key>
+          <Property Name="NoteID" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Note" Type="ntext" Nullable="false" />
+          <Property Name="StartDate" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="EndDate" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Description" Type="ntext" Nullable="false" />
+          <Property Name="RegisterDate" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblPersonnelFunction">
+          <Key>
+            <PropertyRef Name="PersonnelFunctionID" />
+          </Key>
+          <Property Name="PersonnelFunctionID" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="PersonnelID" Type="int" Nullable="false" />
+          <Property Name="Year" Type="int" Nullable="false" />
+          <Property Name="Month" Type="int" Nullable="false" />
+          <Property Name="CarpetID" Type="int" Nullable="false" />
+          <Property Name="Meters" Type="float" Nullable="false" />
+          <Property Name="Count" Type="float" Nullable="false" />
+          <Property Name="WorkDay" Type="float" Nullable="false" />
+          <Property Name="Description" Type="ntext" Nullable="false" />
+          <Property Name="Active" Type="smallint" Nullable="false" />
+          <Property Name="RegisterDate" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblPersonnels">
+          <Key>
+            <PropertyRef Name="PersonnelID" />
+          </Key>
+          <Property Name="PersonnelID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Image" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="NationCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="SexType" Type="bit" Nullable="false" />
+          <Property Name="MaritalStatus" Type="smallint" Nullable="false" />
+          <Property Name="FatherName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BithayDay" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="CityOfBirth" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CityOfLife" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="13" Nullable="false" />
+          <Property Name="Description" Type="ntext" Nullable="false" />
+          <Property Name="Active" Type="smallint" Nullable="false" />
+          <Property Name="RegisterDate" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblUsers">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Image" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="PassWord" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="13" Nullable="false" />
+          <Property Name="BackGroundImage" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Description" Type="ntext" Nullable="false" />
+          <Property Name="Active" Type="smallint" Nullable="false" />
+          <Property Name="RegisterDate" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_tblChecks_tblChecks">
+          <End Role="tblCustomers" Type="Self.tblCustomers" Multiplicity="1" />
+          <End Role="tblChecks" Type="Self.tblChecks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCustomers">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="tblChecks">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblCostumerBuy_tblCustomers">
+          <End Role="tblCustomers" Type="Self.tblCustomers" Multiplicity="1" />
+          <End Role="tblCustomerBuy" Type="Self.tblCustomerBuy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCustomers">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="tblCustomerBuy">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblCostumerBuyList_tblCostumerBuy">
+          <End Role="tblCustomerBuy" Type="Self.tblCustomerBuy" Multiplicity="1" />
+          <End Role="tblCustomerBuyList" Type="Self.tblCustomerBuyList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCustomerBuy">
+              <PropertyRef Name="CustomerBuyID" />
+            </Principal>
+            <Dependent Role="tblCustomerBuyList">
+              <PropertyRef Name="CustomerBuyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblDocuments_tblCustomers">
+          <End Role="tblCustomers" Type="Self.tblCustomers" Multiplicity="1" />
+          <End Role="tblDocuments" Type="Self.tblDocuments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCustomers">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="tblDocuments">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblFactorList_tblCarpets">
+          <End Role="tblCarpets" Type="Self.tblCarpets" Multiplicity="1" />
+          <End Role="tblFactorsList" Type="Self.tblFactorsList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCarpets">
+              <PropertyRef Name="CarpetID" />
+            </Principal>
+            <Dependent Role="tblFactorsList">
+              <PropertyRef Name="CarpetID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblFactorList_tblFactor">
+          <End Role="tblFactors" Type="Self.tblFactors" Multiplicity="1" />
+          <End Role="tblFactorsList" Type="Self.tblFactorsList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblFactors">
+              <PropertyRef Name="FactorID" />
+            </Principal>
+            <Dependent Role="tblFactorsList">
+              <PropertyRef Name="FactorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblLog_tblLogType">
+          <End Role="tblLogType" Type="Self.tblLogType" Multiplicity="1" />
+          <End Role="tblLog" Type="Self.tblLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblLogType">
+              <PropertyRef Name="LogTypeID" />
+            </Principal>
+            <Dependent Role="tblLog">
+              <PropertyRef Name="LogTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblPersonnelFunction_tblCarpets">
+          <End Role="tblCarpets" Type="Self.tblCarpets" Multiplicity="1" />
+          <End Role="tblPersonnelFunction" Type="Self.tblPersonnelFunction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCarpets">
+              <PropertyRef Name="CarpetID" />
+            </Principal>
+            <Dependent Role="tblPersonnelFunction">
+              <PropertyRef Name="CarpetID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblPersonnelFunction_tblPersonnels">
+          <End Role="tblPersonnels" Type="Self.tblPersonnels" Multiplicity="1" />
+          <End Role="tblPersonnelFunction" Type="Self.tblPersonnelFunction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPersonnels">
+              <PropertyRef Name="PersonnelID" />
+            </Principal>
+            <Dependent Role="tblPersonnelFunction">
+              <PropertyRef Name="PersonnelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CarpetCleaningModelStoreContainer">
+          <EntitySet Name="tblCarpetPrice" EntityType="Self.tblCarpetPrice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCarpets" EntityType="Self.tblCarpets" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblChecks" EntityType="Self.tblChecks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCustomerBuy" EntityType="Self.tblCustomerBuy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCustomerBuyList" EntityType="Self.tblCustomerBuyList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCustomers" EntityType="Self.tblCustomers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblDocuments" EntityType="Self.tblDocuments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblFactors" EntityType="Self.tblFactors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblFactorsList" EntityType="Self.tblFactorsList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblLog" EntityType="Self.tblLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblLogType" EntityType="Self.tblLogType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblNotes" EntityType="Self.tblNotes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPersonnelFunction" EntityType="Self.tblPersonnelFunction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPersonnels" EntityType="Self.tblPersonnels" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUsers" EntityType="Self.tblUsers" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tblChecks_tblChecks" Association="Self.FK_tblChecks_tblChecks">
+            <End Role="tblCustomers" EntitySet="tblCustomers" />
+            <End Role="tblChecks" EntitySet="tblChecks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblCostumerBuy_tblCustomers" Association="Self.FK_tblCostumerBuy_tblCustomers">
+            <End Role="tblCustomers" EntitySet="tblCustomers" />
+            <End Role="tblCustomerBuy" EntitySet="tblCustomerBuy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblCostumerBuyList_tblCostumerBuy" Association="Self.FK_tblCostumerBuyList_tblCostumerBuy">
+            <End Role="tblCustomerBuy" EntitySet="tblCustomerBuy" />
+            <End Role="tblCustomerBuyList" EntitySet="tblCustomerBuyList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblDocuments_tblCustomers" Association="Self.FK_tblDocuments_tblCustomers">
+            <End Role="tblCustomers" EntitySet="tblCustomers" />
+            <End Role="tblDocuments" EntitySet="tblDocuments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblFactorList_tblCarpets" Association="Self.FK_tblFactorList_tblCarpets">
+            <End Role="tblCarpets" EntitySet="tblCarpets" />
+            <End Role="tblFactorsList" EntitySet="tblFactorsList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblFactorList_tblFactor" Association="Self.FK_tblFactorList_tblFactor">
+            <End Role="tblFactors" EntitySet="tblFactors" />
+            <End Role="tblFactorsList" EntitySet="tblFactorsList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblLog_tblLogType" Association="Self.FK_tblLog_tblLogType">
+            <End Role="tblLogType" EntitySet="tblLogType" />
+            <End Role="tblLog" EntitySet="tblLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblPersonnelFunction_tblCarpets" Association="Self.FK_tblPersonnelFunction_tblCarpets">
+            <End Role="tblCarpets" EntitySet="tblCarpets" />
+            <End Role="tblPersonnelFunction" EntitySet="tblPersonnelFunction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblPersonnelFunction_tblPersonnels" Association="Self.FK_tblPersonnelFunction_tblPersonnels">
+            <End Role="tblPersonnels" EntitySet="tblPersonnels" />
+            <End Role="tblPersonnelFunction" EntitySet="tblPersonnelFunction" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CarpetCleaningModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblCarpetPrice">
+          <Key>
+            <PropertyRef Name="CarpetPriceID" />
+          </Key>
+          <Property Name="CarpetPriceID" Type="Int32" Nullable="false" />
+          <Property Name="Year" Type="Int32" Nullable="false" />
+          <Property Name="Shur" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Darkesh" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Gayegh" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Shiraze" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Charm" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Hasiri" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Geytani" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Pardakht" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RegisterDate" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblCarpet">
+          <Key>
+            <PropertyRef Name="CarpetID" />
+          </Key>
+          <Property Name="CarpetID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Width" Type="Double" Nullable="false" />
+          <Property Name="Hight" Type="Double" Nullable="false" />
+          <Property Name="Area" Type="Double" Nullable="false" />
+          <Property Name="Shur" Type="Double" Nullable="false" />
+          <Property Name="Darkesh" Type="Double" Nullable="false" />
+          <Property Name="Gayegh" Type="Double" Nullable="false" />
+          <Property Name="Shiraze" Type="Double" Nullable="false" />
+          <Property Name="Charm" Type="Double" Nullable="false" />
+          <Property Name="Hasiri" Type="Double" Nullable="false" />
+          <Property Name="Geytani" Type="Double" Nullable="false" />
+          <Property Name="Pardakht" Type="Double" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RegisterDate" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="tblPersonnelFunctions" Relationship="Self.FK_tblPersonnelFunction_tblCarpets" FromRole="tblCarpets" ToRole="tblPersonnelFunction" />
+          <NavigationProperty Name="tblFactorsLists" Relationship="CarpetCleaningModel.FK_tblFactorList_tblCarpets" FromRole="tblCarpet" ToRole="tblFactorsList" />
+        </EntityType>
+        <EntityType Name="tblDocument">
+          <Key>
+            <PropertyRef Name="DocumentID" />
+          </Key>
+          <Property Name="DocumentID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="DocumetnTypeID" Type="Int16" Nullable="false" />
+          <Property Name="DocumentDate" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PriceTypeID" Type="Int16" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Discount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CheckID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RegisterDate" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="tblCustomer" Relationship="CarpetCleaningModel.FK_tblDocuments_tblCustomers" FromRole="tblDocument" ToRole="tblCustomer" />
+        </EntityType>
+        <EntityType Name="tblLog">
+          <Key>
+            <PropertyRef Name="LogID" />
+          </Key>
+          <Property Name="LogID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="LogTypeID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="LogContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TableName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TableKeyID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="LogDate" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LogTime" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="tblLogType" Relationship="Self.FK_tblLog_tblLogType" FromRole="tblLog" ToRole="tblLogType" />
+        </EntityType>
+        <EntityType Name="tblLogType">
+          <Key>
+            <PropertyRef Name="LogTypeID" />
+          </Key>
+          <Property Name="LogTypeID" Type="Int32" Nullable="false" />
+          <Property Name="LogTypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RegTypeID" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="tblLogs" Relationship="Self.FK_tblLog_tblLogType" FromRole="tblLogType" ToRole="tblLog" />
+        </EntityType>
+        <EntityType Name="tblNote">
+          <Key>
+            <PropertyRef Name="NoteID" />
+          </Key>
+          <Property Name="NoteID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StartDate" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EndDate" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RegisterDate" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblPersonnelFunction">
+          <Key>
+            <PropertyRef Name="PersonnelFunctionID" />
+          </Key>
+          <Property Name="PersonnelFunctionID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="PersonnelID" Type="Int32" Nullable="false" />
+          <Property Name="Year" Type="Int32" Nullable="false" />
+          <Property Name="Month" Type="Int32" Nullable="false" />
+          <Property Name="CarpetID" Type="Int32" Nullable="false" />
+          <Property Name="Meters" Type="Double" Nullable="false" />
+          <Property Name="Count" Type="Double" Nullable="false" />
+          <Property Name="WorkDay" Type="Double" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Active" Type="Int16" Nullable="false" />
+          <Property Name="RegisterDate" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="tblCarpet" Relationship="Self.FK_tblPersonnelFunction_tblCarpets" FromRole="tblPersonnelFunction" ToRole="tblCarpets" />
+          <NavigationProperty Name="tblPersonnel" Relationship="Self.FK_tblPersonnelFunction_tblPersonnels" FromRole="tblPersonnelFunction" ToRole="tblPersonnels" />
+        </EntityType>
+        <EntityType Name="tblPersonnel">
+          <Key>
+            <PropertyRef Name="PersonnelID" />
+          </Key>
+          <Property Name="PersonnelID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Image" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NationCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SexType" Type="Boolean" Nullable="false" />
+          <Property Name="MaritalStatus" Type="Int16" Nullable="false" />
+          <Property Name="FatherName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BithayDay" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CityOfBirth" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CityOfLife" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Mobile" Type="String" MaxLength="13" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Active" Type="Int16" Nullable="false" />
+          <Property Name="RegisterDate" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="tblPersonnelFunctions" Relationship="Self.FK_tblPersonnelFunction_tblPersonnels" FromRole="tblPersonnels" ToRole="tblPersonnelFunction" />
+        </EntityType>
+        <EntityType Name="tblUser">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Image" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PassWord" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Mobile" Type="String" MaxLength="13" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BackGroundImage" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Active" Type="Int16" Nullable="false" />
+          <Property Name="RegisterDate" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_tblPersonnelFunction_tblCarpets">
+          <End Role="tblCarpets" Type="Self.tblCarpet" Multiplicity="1" />
+          <End Role="tblPersonnelFunction" Type="Self.tblPersonnelFunction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCarpets">
+              <PropertyRef Name="CarpetID" />
+            </Principal>
+            <Dependent Role="tblPersonnelFunction">
+              <PropertyRef Name="CarpetID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblLog_tblLogType">
+          <End Role="tblLogType" Type="Self.tblLogType" Multiplicity="1" />
+          <End Role="tblLog" Type="Self.tblLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblLogType">
+              <PropertyRef Name="LogTypeID" />
+            </Principal>
+            <Dependent Role="tblLog">
+              <PropertyRef Name="LogTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblPersonnelFunction_tblPersonnels">
+          <End Role="tblPersonnels" Type="Self.tblPersonnel" Multiplicity="1" />
+          <End Role="tblPersonnelFunction" Type="Self.tblPersonnelFunction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPersonnels">
+              <PropertyRef Name="PersonnelID" />
+            </Principal>
+            <Dependent Role="tblPersonnelFunction">
+              <PropertyRef Name="PersonnelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CarpetCleaningEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblCarpetPrices" EntityType="Self.tblCarpetPrice" />
+          <EntitySet Name="tblCarpets" EntityType="Self.tblCarpet" />
+          <EntitySet Name="tblDocuments" EntityType="Self.tblDocument" />
+          <EntitySet Name="tblLogs" EntityType="Self.tblLog" />
+          <EntitySet Name="tblLogTypes" EntityType="Self.tblLogType" />
+          <EntitySet Name="tblNotes" EntityType="Self.tblNote" />
+          <EntitySet Name="tblPersonnelFunctions" EntityType="Self.tblPersonnelFunction" />
+          <EntitySet Name="tblPersonnels" EntityType="Self.tblPersonnel" />
+          <EntitySet Name="tblUsers" EntityType="Self.tblUser" />
+          <AssociationSet Name="FK_tblPersonnelFunction_tblCarpets" Association="Self.FK_tblPersonnelFunction_tblCarpets">
+            <End Role="tblCarpets" EntitySet="tblCarpets" />
+            <End Role="tblPersonnelFunction" EntitySet="tblPersonnelFunctions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblLog_tblLogType" Association="Self.FK_tblLog_tblLogType">
+            <End Role="tblLogType" EntitySet="tblLogTypes" />
+            <End Role="tblLog" EntitySet="tblLogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblPersonnelFunction_tblPersonnels" Association="Self.FK_tblPersonnelFunction_tblPersonnels">
+            <End Role="tblPersonnels" EntitySet="tblPersonnels" />
+            <End Role="tblPersonnelFunction" EntitySet="tblPersonnelFunctions" />
+          </AssociationSet>
+          <EntitySet Name="tblChecks" EntityType="CarpetCleaningModel.tblCheck" />
+          <EntitySet Name="tblCustomers" EntityType="CarpetCleaningModel.tblCustomer" />
+          <EntitySet Name="tblFactors" EntityType="CarpetCleaningModel.tblFactor" />
+          <AssociationSet Name="FK_tblChecks_tblChecks" Association="CarpetCleaningModel.FK_tblChecks_tblChecks">
+            <End Role="tblCustomer" EntitySet="tblCustomers" />
+            <End Role="tblCheck" EntitySet="tblChecks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblDocuments_tblCustomers" Association="CarpetCleaningModel.FK_tblDocuments_tblCustomers">
+            <End Role="tblCustomer" EntitySet="tblCustomers" />
+            <End Role="tblDocument" EntitySet="tblDocuments" />
+          </AssociationSet>
+          <EntitySet Name="tblCustomerBuys" EntityType="CarpetCleaningModel.tblCustomerBuy" />
+          <AssociationSet Name="FK_tblCostumerBuy_tblCustomers" Association="CarpetCleaningModel.FK_tblCostumerBuy_tblCustomers">
+            <End Role="tblCustomer" EntitySet="tblCustomers" />
+            <End Role="tblCustomerBuy" EntitySet="tblCustomerBuys" />
+          </AssociationSet>
+          <EntitySet Name="tblFactorsLists" EntityType="CarpetCleaningModel.tblFactorsList" />
+          <AssociationSet Name="FK_tblFactorList_tblCarpets" Association="CarpetCleaningModel.FK_tblFactorList_tblCarpets">
+            <End Role="tblCarpet" EntitySet="tblCarpets" />
+            <End Role="tblFactorsList" EntitySet="tblFactorsLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblFactorList_tblFactor" Association="CarpetCleaningModel.FK_tblFactorList_tblFactor">
+            <End Role="tblFactor" EntitySet="tblFactors" />
+            <End Role="tblFactorsList" EntitySet="tblFactorsLists" />
+          </AssociationSet>
+          <EntitySet Name="tblCustomerBuyLists" EntityType="CarpetCleaningModel.tblCustomerBuyList" />
+          <AssociationSet Name="FK_tblCostumerBuyList_tblCostumerBuy" Association="CarpetCleaningModel.FK_tblCostumerBuyList_tblCostumerBuy">
+            <End Role="tblCustomerBuy" EntitySet="tblCustomerBuys" />
+            <End Role="tblCustomerBuyList" EntitySet="tblCustomerBuyLists" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="tblCheck">
+          <Key>
+            <PropertyRef Name="CheckID" />
+          </Key>
+          <Property Name="CheckID" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="CheckTypeID" Type="Int16" Nullable="false" />
+          <Property Name="CheckSerial" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CheckDate" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CheckDueDate" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="BankName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Reminder" Type="Boolean" Nullable="false" />
+          <Property Name="ReminderDay" Type="Int32" Nullable="false" />
+          <Property Name="ReminderDate" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RegisterDate" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblCustomer" Relationship="CarpetCleaningModel.FK_tblChecks_tblChecks" FromRole="tblCheck" ToRole="tblCustomer" />
+        </EntityType>
+        <EntityType Name="tblCustomer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerTypeID" Type="Int16" Nullable="false" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Tell" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Int16" Nullable="false" />
+          <Property Name="RegisterDate" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblChecks" Relationship="CarpetCleaningModel.FK_tblChecks_tblChecks" FromRole="tblCustomer" ToRole="tblCheck" />
+          <NavigationProperty Name="tblDocuments" Relationship="CarpetCleaningModel.FK_tblDocuments_tblCustomers" FromRole="tblCustomer" ToRole="tblDocument" />
+          <NavigationProperty Name="tblCustomerBuys" Relationship="CarpetCleaningModel.FK_tblCostumerBuy_tblCustomers" FromRole="tblCustomer" ToRole="tblCustomerBuy" />
+        </EntityType>
+        <EntityType Name="tblFactor">
+          <Key>
+            <PropertyRef Name="FactorID" />
+          </Key>
+          <Property Name="FactorID" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="FactorTypeID" Type="Int16" Nullable="false" />
+          <Property Name="FactorDate" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="CustomerName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerMobile" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RegisterDate" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblFactorsLists" Relationship="CarpetCleaningModel.FK_tblFactorList_tblFactor" FromRole="tblFactor" ToRole="tblFactorsList" />
+        </EntityType>
+        <Association Name="FK_tblChecks_tblChecks">
+          <End Type="CarpetCleaningModel.tblCustomer" Role="tblCustomer" Multiplicity="1" />
+          <End Type="CarpetCleaningModel.tblCheck" Role="tblCheck" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCustomer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="tblCheck">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblDocuments_tblCustomers">
+          <End Type="CarpetCleaningModel.tblCustomer" Role="tblCustomer" Multiplicity="1" />
+          <End Type="CarpetCleaningModel.tblDocument" Role="tblDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCustomer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="tblDocument">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tblCustomerBuy">
+          <Key>
+            <PropertyRef Name="CustomerBuyID" />
+          </Key>
+          <Property Name="CustomerBuyID" Type="Int32" Nullable="false" />
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RegisterDate" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblCustomer" Relationship="CarpetCleaningModel.FK_tblCostumerBuy_tblCustomers" FromRole="tblCustomerBuy" ToRole="tblCustomer" />
+          <NavigationProperty Name="tblCustomerBuyLists" Relationship="CarpetCleaningModel.FK_tblCostumerBuyList_tblCostumerBuy" FromRole="tblCustomerBuy" ToRole="tblCustomerBuyList" />
+        </EntityType>
+        <Association Name="FK_tblCostumerBuy_tblCustomers">
+          <End Type="CarpetCleaningModel.tblCustomer" Role="tblCustomer" Multiplicity="1" />
+          <End Type="CarpetCleaningModel.tblCustomerBuy" Role="tblCustomerBuy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCustomer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="tblCustomerBuy">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tblFactorsList">
+          <Key>
+            <PropertyRef Name="FactorListID" />
+          </Key>
+          <Property Name="FactorListID" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="FactorID" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="CustomerBuyListID" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="CarpetID" Type="Int32" Nullable="false" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <Property Name="Shur" Type="Double" Nullable="false" />
+          <Property Name="Darkesh" Type="Double" Nullable="false" />
+          <Property Name="Gayegh" Type="Double" Nullable="false" />
+          <Property Name="Shiraze" Type="Double" Nullable="false" />
+          <Property Name="Charm" Type="Double" Nullable="false" />
+          <Property Name="Hasiri" Type="Double" Nullable="false" />
+          <Property Name="Geytani" Type="Double" Nullable="false" />
+          <Property Name="Pardakht" Type="Double" Nullable="false" />
+          <Property Name="ShurPrice" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="DarkeshPrice" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="GayeghPrice" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="ShirazePrice" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="CharmPrice" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="HasiriPrice" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="GeytaniPrice" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="PardakhtPrice" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="SumPrice" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Discount" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RegisterDate" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblCarpet" Relationship="CarpetCleaningModel.FK_tblFactorList_tblCarpets" FromRole="tblFactorsList" ToRole="tblCarpet" />
+          <NavigationProperty Name="tblFactor" Relationship="CarpetCleaningModel.FK_tblFactorList_tblFactor" FromRole="tblFactorsList" ToRole="tblFactor" />
+        </EntityType>
+        <Association Name="FK_tblFactorList_tblCarpets">
+          <End Type="CarpetCleaningModel.tblCarpet" Role="tblCarpet" Multiplicity="1" />
+          <End Type="CarpetCleaningModel.tblFactorsList" Role="tblFactorsList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCarpet">
+              <PropertyRef Name="CarpetID" />
+            </Principal>
+            <Dependent Role="tblFactorsList">
+              <PropertyRef Name="CarpetID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblFactorList_tblFactor">
+          <End Type="CarpetCleaningModel.tblFactor" Role="tblFactor" Multiplicity="1" />
+          <End Type="CarpetCleaningModel.tblFactorsList" Role="tblFactorsList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblFactor">
+              <PropertyRef Name="FactorID" />
+            </Principal>
+            <Dependent Role="tblFactorsList">
+              <PropertyRef Name="FactorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tblCustomerBuyList">
+          <Key>
+            <PropertyRef Name="CustomerBuyListID" />
+          </Key>
+          <Property Name="CustomerBuyListID" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="CustomerBuyID" Type="Int32" Nullable="false" />
+          <Property Name="CarpetID" Type="Int32" Nullable="false" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <Property Name="Shur" Type="Double" Nullable="false" />
+          <Property Name="Darkesh" Type="Double" Nullable="false" />
+          <Property Name="Gayegh" Type="Double" Nullable="false" />
+          <Property Name="Shiraze" Type="Double" Nullable="false" />
+          <Property Name="Charm" Type="Double" Nullable="false" />
+          <Property Name="Hasiri" Type="Double" Nullable="false" />
+          <Property Name="Geytani" Type="Double" Nullable="false" />
+          <Property Name="Pardakht" Type="Double" Nullable="false" />
+          <Property Name="ShurPrice" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="DarkeshPrice" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="GayeghPrice" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="ShirazePrice" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="CharmPrice" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="HasiriPrice" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="GeytaniPrice" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="PardakhtPrice" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="SumPrice" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Discount" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="FactorStatus" Type="Int16" Nullable="false" />
+          <Property Name="FactorDate" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RegisterDate" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblCustomerBuy" Relationship="CarpetCleaningModel.FK_tblCostumerBuyList_tblCostumerBuy" FromRole="tblCustomerBuyList" ToRole="tblCustomerBuy" />
+        </EntityType>
+        <Association Name="FK_tblCostumerBuyList_tblCostumerBuy">
+          <End Type="CarpetCleaningModel.tblCustomerBuy" Role="tblCustomerBuy" Multiplicity="1" />
+          <End Type="CarpetCleaningModel.tblCustomerBuyList" Role="tblCustomerBuyList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCustomerBuy">
+              <PropertyRef Name="CustomerBuyID" />
+            </Principal>
+            <Dependent Role="tblCustomerBuyList">
+              <PropertyRef Name="CustomerBuyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CarpetCleaningModelStoreContainer" CdmEntityContainer="CarpetCleaningEntities">
+          <EntitySetMapping Name="tblCarpetPrices">
+            <EntityTypeMapping TypeName="CarpetCleaningModel.tblCarpetPrice">
+              <MappingFragment StoreEntitySet="tblCarpetPrice">
+                <ScalarProperty Name="CarpetPriceID" ColumnName="CarpetPriceID" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Shur" ColumnName="Shur" />
+                <ScalarProperty Name="Darkesh" ColumnName="Darkesh" />
+                <ScalarProperty Name="Gayegh" ColumnName="Gayegh" />
+                <ScalarProperty Name="Shiraze" ColumnName="Shiraze" />
+                <ScalarProperty Name="Charm" ColumnName="Charm" />
+                <ScalarProperty Name="Hasiri" ColumnName="Hasiri" />
+                <ScalarProperty Name="Geytani" ColumnName="Geytani" />
+                <ScalarProperty Name="Pardakht" ColumnName="Pardakht" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCarpets">
+            <EntityTypeMapping TypeName="CarpetCleaningModel.tblCarpet">
+              <MappingFragment StoreEntitySet="tblCarpets">
+                <ScalarProperty Name="CarpetID" ColumnName="CarpetID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Width" ColumnName="Width" />
+                <ScalarProperty Name="Hight" ColumnName="Hight" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="Shur" ColumnName="Shur" />
+                <ScalarProperty Name="Darkesh" ColumnName="Darkesh" />
+                <ScalarProperty Name="Gayegh" ColumnName="Gayegh" />
+                <ScalarProperty Name="Shiraze" ColumnName="Shiraze" />
+                <ScalarProperty Name="Charm" ColumnName="Charm" />
+                <ScalarProperty Name="Hasiri" ColumnName="Hasiri" />
+                <ScalarProperty Name="Geytani" ColumnName="Geytani" />
+                <ScalarProperty Name="Pardakht" ColumnName="Pardakht" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblDocuments">
+            <EntityTypeMapping TypeName="CarpetCleaningModel.tblDocument">
+              <MappingFragment StoreEntitySet="tblDocuments">
+                <ScalarProperty Name="DocumentID" ColumnName="DocumentID" />
+                <ScalarProperty Name="DocumetnTypeID" ColumnName="DocumetnTypeID" />
+                <ScalarProperty Name="DocumentDate" ColumnName="DocumentDate" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="PriceTypeID" ColumnName="PriceTypeID" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="CheckID" ColumnName="CheckID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblLogs">
+            <EntityTypeMapping TypeName="CarpetCleaningModel.tblLog">
+              <MappingFragment StoreEntitySet="tblLog">
+                <ScalarProperty Name="LogID" ColumnName="LogID" />
+                <ScalarProperty Name="LogTypeID" ColumnName="LogTypeID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="LogContent" ColumnName="LogContent" />
+                <ScalarProperty Name="TableName" ColumnName="TableName" />
+                <ScalarProperty Name="TableKeyID" ColumnName="TableKeyID" />
+                <ScalarProperty Name="LogDate" ColumnName="LogDate" />
+                <ScalarProperty Name="LogTime" ColumnName="LogTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblLogTypes">
+            <EntityTypeMapping TypeName="CarpetCleaningModel.tblLogType">
+              <MappingFragment StoreEntitySet="tblLogType">
+                <ScalarProperty Name="LogTypeID" ColumnName="LogTypeID" />
+                <ScalarProperty Name="LogTypeName" ColumnName="LogTypeName" />
+                <ScalarProperty Name="RegTypeID" ColumnName="RegTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblNotes">
+            <EntityTypeMapping TypeName="CarpetCleaningModel.tblNote">
+              <MappingFragment StoreEntitySet="tblNotes">
+                <ScalarProperty Name="NoteID" ColumnName="NoteID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPersonnelFunctions">
+            <EntityTypeMapping TypeName="CarpetCleaningModel.tblPersonnelFunction">
+              <MappingFragment StoreEntitySet="tblPersonnelFunction">
+                <ScalarProperty Name="PersonnelFunctionID" ColumnName="PersonnelFunctionID" />
+                <ScalarProperty Name="PersonnelID" ColumnName="PersonnelID" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="CarpetID" ColumnName="CarpetID" />
+                <ScalarProperty Name="Meters" ColumnName="Meters" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="WorkDay" ColumnName="WorkDay" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPersonnels">
+            <EntityTypeMapping TypeName="CarpetCleaningModel.tblPersonnel">
+              <MappingFragment StoreEntitySet="tblPersonnels">
+                <ScalarProperty Name="PersonnelID" ColumnName="PersonnelID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="NationCode" ColumnName="NationCode" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SexType" ColumnName="SexType" />
+                <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+                <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+                <ScalarProperty Name="BithayDay" ColumnName="BithayDay" />
+                <ScalarProperty Name="CityOfBirth" ColumnName="CityOfBirth" />
+                <ScalarProperty Name="CityOfLife" ColumnName="CityOfLife" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUsers">
+            <EntityTypeMapping TypeName="CarpetCleaningModel.tblUser">
+              <MappingFragment StoreEntitySet="tblUsers">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="BackGroundImage" ColumnName="BackGroundImage" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblChecks">
+            <EntityTypeMapping TypeName="CarpetCleaningModel.tblCheck">
+              <MappingFragment StoreEntitySet="tblChecks">
+                <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ReminderDate" ColumnName="ReminderDate" />
+                <ScalarProperty Name="ReminderDay" ColumnName="ReminderDay" />
+                <ScalarProperty Name="Reminder" ColumnName="Reminder" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CheckDueDate" ColumnName="CheckDueDate" />
+                <ScalarProperty Name="CheckDate" ColumnName="CheckDate" />
+                <ScalarProperty Name="CheckSerial" ColumnName="CheckSerial" />
+                <ScalarProperty Name="CheckTypeID" ColumnName="CheckTypeID" />
+                <ScalarProperty Name="CheckID" ColumnName="CheckID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCustomers">
+            <EntityTypeMapping TypeName="CarpetCleaningModel.tblCustomer">
+              <MappingFragment StoreEntitySet="tblCustomers">
+                <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Tell" ColumnName="Tell" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="CustomerTypeID" ColumnName="CustomerTypeID" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblFactors">
+            <EntityTypeMapping TypeName="CarpetCleaningModel.tblFactor">
+              <MappingFragment StoreEntitySet="tblFactors">
+                <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CustomerMobile" ColumnName="CustomerMobile" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="FactorDate" ColumnName="FactorDate" />
+                <ScalarProperty Name="FactorTypeID" ColumnName="FactorTypeID" />
+                <ScalarProperty Name="FactorID" ColumnName="FactorID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCustomerBuys">
+            <EntityTypeMapping TypeName="CarpetCleaningModel.tblCustomerBuy">
+              <MappingFragment StoreEntitySet="tblCustomerBuy">
+                <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CustomerBuyID" ColumnName="CustomerBuyID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblFactorsLists">
+            <EntityTypeMapping TypeName="CarpetCleaningModel.tblFactorsList">
+              <MappingFragment StoreEntitySet="tblFactorsList">
+                <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="SumPrice" ColumnName="SumPrice" />
+                <ScalarProperty Name="PardakhtPrice" ColumnName="PardakhtPrice" />
+                <ScalarProperty Name="GeytaniPrice" ColumnName="GeytaniPrice" />
+                <ScalarProperty Name="HasiriPrice" ColumnName="HasiriPrice" />
+                <ScalarProperty Name="CharmPrice" ColumnName="CharmPrice" />
+                <ScalarProperty Name="ShirazePrice" ColumnName="ShirazePrice" />
+                <ScalarProperty Name="GayeghPrice" ColumnName="GayeghPrice" />
+                <ScalarProperty Name="DarkeshPrice" ColumnName="DarkeshPrice" />
+                <ScalarProperty Name="ShurPrice" ColumnName="ShurPrice" />
+                <ScalarProperty Name="Pardakht" ColumnName="Pardakht" />
+                <ScalarProperty Name="Geytani" ColumnName="Geytani" />
+                <ScalarProperty Name="Hasiri" ColumnName="Hasiri" />
+                <ScalarProperty Name="Charm" ColumnName="Charm" />
+                <ScalarProperty Name="Shiraze" ColumnName="Shiraze" />
+                <ScalarProperty Name="Gayegh" ColumnName="Gayegh" />
+                <ScalarProperty Name="Darkesh" ColumnName="Darkesh" />
+                <ScalarProperty Name="Shur" ColumnName="Shur" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="CarpetID" ColumnName="CarpetID" />
+                <ScalarProperty Name="CustomerBuyListID" ColumnName="CustomerBuyListID" />
+                <ScalarProperty Name="FactorID" ColumnName="FactorID" />
+                <ScalarProperty Name="FactorListID" ColumnName="FactorListID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCustomerBuyLists">
+            <EntityTypeMapping TypeName="CarpetCleaningModel.tblCustomerBuyList">
+              <MappingFragment StoreEntitySet="tblCustomerBuyList">
+                <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="FactorDate" ColumnName="FactorDate" />
+                <ScalarProperty Name="FactorStatus" ColumnName="FactorStatus" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="SumPrice" ColumnName="SumPrice" />
+                <ScalarProperty Name="PardakhtPrice" ColumnName="PardakhtPrice" />
+                <ScalarProperty Name="GeytaniPrice" ColumnName="GeytaniPrice" />
+                <ScalarProperty Name="HasiriPrice" ColumnName="HasiriPrice" />
+                <ScalarProperty Name="CharmPrice" ColumnName="CharmPrice" />
+                <ScalarProperty Name="ShirazePrice" ColumnName="ShirazePrice" />
+                <ScalarProperty Name="GayeghPrice" ColumnName="GayeghPrice" />
+                <ScalarProperty Name="DarkeshPrice" ColumnName="DarkeshPrice" />
+                <ScalarProperty Name="ShurPrice" ColumnName="ShurPrice" />
+                <ScalarProperty Name="Pardakht" ColumnName="Pardakht" />
+                <ScalarProperty Name="Geytani" ColumnName="Geytani" />
+                <ScalarProperty Name="Hasiri" ColumnName="Hasiri" />
+                <ScalarProperty Name="Charm" ColumnName="Charm" />
+                <ScalarProperty Name="Shiraze" ColumnName="Shiraze" />
+                <ScalarProperty Name="Gayegh" ColumnName="Gayegh" />
+                <ScalarProperty Name="Darkesh" ColumnName="Darkesh" />
+                <ScalarProperty Name="Shur" ColumnName="Shur" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="CarpetID" ColumnName="CarpetID" />
+                <ScalarProperty Name="CustomerBuyID" ColumnName="CustomerBuyID" />
+                <ScalarProperty Name="CustomerBuyListID" ColumnName="CustomerBuyListID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

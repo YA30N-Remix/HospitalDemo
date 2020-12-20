@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d645b6fa188f48c0beecc2f965588444" Name="Diagram1">
+        <EntityTypeShape EntityType="CarpetCleaningModel.tblCarpetPrice" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarpetCleaningModel.tblCarpet" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarpetCleaningModel.tblDocument" Width="1.5" PointX="11" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarpetCleaningModel.tblLog" Width="1.5" PointX="8" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarpetCleaningModel.tblLogType" Width="1.5" PointX="5.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarpetCleaningModel.tblNote" Width="1.5" PointX="5.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarpetCleaningModel.tblPersonnelFunction" Width="1.5" PointX="6" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarpetCleaningModel.tblPersonnel" Width="1.5" PointX="3.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarpetCleaningModel.tblUser" Width="1.5" PointX="12.75" PointY="11.125" IsExpanded="true" />
+        <AssociationConnector Association="CarpetCleaningModel.FK_tblPersonnelFunction_tblCarpets" ManuallyRouted="false" />
+        <AssociationConnector Association="CarpetCleaningModel.FK_tblLog_tblLogType" ManuallyRouted="false" />
+        <AssociationConnector Association="CarpetCleaningModel.FK_tblPersonnelFunction_tblPersonnels" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CarpetCleaningModel.tblCheck" Width="1.5" PointX="11" PointY="1.5" />
+        <EntityTypeShape EntityType="CarpetCleaningModel.tblCustomer" Width="1.5" PointX="9.125" PointY="4" />
+        <EntityTypeShape EntityType="CarpetCleaningModel.tblFactor" Width="1.5" PointX="0.75" PointY="1" />
+        <AssociationConnector Association="CarpetCleaningModel.FK_tblChecks_tblChecks" />
+        <AssociationConnector Association="CarpetCleaningModel.FK_tblDocuments_tblCustomers" />
+        <EntityTypeShape EntityType="CarpetCleaningModel.tblCustomerBuy" Width="1.5" PointX="11.375" PointY="16.75" />
+        <AssociationConnector Association="CarpetCleaningModel.FK_tblCostumerBuy_tblCustomers" />
+        <EntityTypeShape EntityType="CarpetCleaningModel.tblFactorsList" Width="1.5" PointX="3" PointY="2" />
+        <AssociationConnector Association="CarpetCleaningModel.FK_tblFactorList_tblCarpets" />
+        <AssociationConnector Association="CarpetCleaningModel.FK_tblFactorList_tblFactor" />
+        <EntityTypeShape EntityType="CarpetCleaningModel.tblCustomerBuyList" Width="1.5" PointX="13.625" PointY="15.75" />
+        <AssociationConnector Association="CarpetCleaningModel.FK_tblCostumerBuyList_tblCostumerBuy" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
