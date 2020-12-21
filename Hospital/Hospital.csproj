@@ -218,7 +218,6 @@
     <Content Include="vacuum_ljs_icon.ico" />
     <None Include="Resources\Taylor-Howes-Kensington-Penthouse-1-1-3000x1680.jpg" />
     <None Include="Resources\1.jpg" />
-    <None Include="Resources\Carpet-Cleaning-Middlesbrough.jpg" />
     <None Include="Resources\browser.png" />
     <None Include="Resources\cart.png" />
     <None Include="Resources\security.png" />
