@@ -14,6 +14,12 @@ namespace Hospital.Model
     
     public partial class tblPaziresh
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tblPaziresh()
+        {
+            this.tblTasviyeHeasbs = new HashSet<tblTasviyeHeasb>();
+        }
+    
         public int PazireshID { get; set; }
         public string TarikhPaziresh { get; set; }
         public int PezeshkID { get; set; }
@@ -25,6 +31,7 @@ namespace Hospital.Model
     
         public virtual tblOtagh tblOtagh { get; set; }
         public virtual tblPezeshk tblPezeshk { get; set; }
-        public virtual tblTasviyeHeasb tblTasviyeHeasb { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblTasviyeHeasb> tblTasviyeHeasbs { get; set; }
     }
 }

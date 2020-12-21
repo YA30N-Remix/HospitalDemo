@@ -38,39 +38,12 @@ namespace Hospital
 
 
         }
-
-        private void btnsettings_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Forms.BasicInformation.frmPersonnels frmPersonnels = new Forms.BasicInformation.frmPersonnels();
-                Forms.BasicInformation.frmPersonnels.LoadTypeID = 0;
-                frmPersonnels.Show();
-            }
-            catch { }
-        }
-
-
-        private void btnchangewallpaper_Click(object sender, EventArgs e)
-        {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                Image img = Image.FromFile(openFileDialog1.FileName);
-                this.imgBackGround.Image = img;
-                img = Image.FromFile(Application.StartupPath + "\\Untitled-2 copy.png");
-                //Graphics g= this.pictureBox4.CreateGraphics();
-                //Point p = new Point(pictureBox4.Left , pictureBox4.Top);
-                //g.DrawImage(img, p);
-
-            }
-        }
-
+    
         private void btnUsers_Click(object sender, EventArgs e)
         {
             try
             {
-                Forms.frmUsers frmUsers = new Forms.frmUsers();
-                Forms.frmUsers.LoadTypeID = 0;
+                Forms.frmUsers frmUsers = new Forms.frmUsers();       
                 frmUsers.Show();
             }
             catch (Exception)
@@ -80,25 +53,18 @@ namespace Hospital
 
         }
 
-        private void btnCustomers_Click(object sender, EventArgs e)
+        private void btnOtagh_Click(object sender, EventArgs e)
         {
-            Forms.BasicInformation.frmCustomers frmCustomers = new Forms.BasicInformation.frmCustomers();
-            Forms.BasicInformation.frmPersonnels.LoadTypeID = 0;
+            Forms.frmOtagh frmCustomers = new Forms.frmOtagh();    
             frmCustomers.Show();
         }
-       
-        private void btnNotes_Click(object sender, EventArgs e)
-        {
-            Forms.BasicInformation.frmNotes frmNotes = new Forms.BasicInformation.frmNotes();
-            Forms.BasicInformation.frmNotes.LoadTypeID = 0;
-            frmNotes.Show();
-        }
+                     
 
-        private void btnCarpets_Click(object sender, EventArgs e)
+        private void btnPaziresh_Click(object sender, EventArgs e)
         {
-            Forms.BasicInformation.frmCarpets frmCarpets = new Forms.BasicInformation.frmCarpets();
-            Forms.BasicInformation.frmCarpets.LoadTypeID = 0;
-            frmCarpets.Show();
+            Forms.frmPaziresh frmPaziresh = new Forms.frmPaziresh();
+            Forms.frmPaziresh.LoadTypeID = 0;
+            frmPaziresh.Show();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -108,39 +74,10 @@ namespace Hospital
             Application.Exit();
 
         }
-
-        private void btnPersonnelFunction_Click(object sender, EventArgs e)
+                   
+        private void btnTasviyeHeasb_Click(object sender, EventArgs e)
         {
-            Forms.Operations.frmPersonnelFunction frmPersonnelFunction = new Forms.Operations.frmPersonnelFunction();
-            frmPersonnelFunction.Show();
-        }
-
-        private void btnChecks_Click(object sender, EventArgs e)
-        {
-            Forms.Operations.frmChecks frmChecks = new Forms.Operations.frmChecks();
-            Forms.Operations.frmChecks.LoadTypeID = 0;
-            frmChecks.Show();
-        }
-
-
-        private void btnDocuments_Click(object sender, EventArgs e)
-        {
-            Forms.Operations.frmDocuments frmDocuments = new Forms.Operations.frmDocuments();
-            Forms.Operations.frmDocuments.LoadTypeID = 0;
-            frmDocuments.Show();
-        }
-
-      
-        private void btnCostumerBuyList_Click(object sender, EventArgs e)
-        {
-            Forms.Operations.frmCostumerBuy frmCostumerBuyList = new Forms.Operations.frmCostumerBuy();
-            Forms.Operations.frmCostumerBuy.LoadTypeID = 0;
-            frmCostumerBuyList.Show();
-        }
-         
-        private void btnCarpetPrice_Click(object sender, EventArgs e)
-        {
-            Forms.BasicInformation.frmCarpetPrice frmCarpetPrice = new Forms.BasicInformation.frmCarpetPrice();
+            Forms.frmTasviyeHeasb frmCarpetPrice = new Forms.frmTasviyeHeasb();
             frmCarpetPrice.Show();
         }
             

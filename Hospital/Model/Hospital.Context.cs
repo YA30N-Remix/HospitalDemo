@@ -28,8 +28,8 @@ namespace Hospital.Model
         public virtual DbSet<tblUser> tblUsers { get; set; }
         public virtual DbSet<tblBakhsh> tblBakhshes { get; set; }
         public virtual DbSet<tblOtagh> tblOtaghs { get; set; }
-        public virtual DbSet<tblTasviyeHeasb> tblTasviyeHeasbs { get; set; }
         public virtual DbSet<tblPaziresh> tblPazireshes { get; set; }
         public virtual DbSet<tblPezeshk> tblPezeshks { get; set; }
+        public virtual DbSet<tblTasviyeHeasb> tblTasviyeHeasbs { get; set; }
     }
 }

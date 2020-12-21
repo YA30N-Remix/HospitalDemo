@@ -215,6 +215,7 @@
       <DependentUpon>Hospital.edmx</DependentUpon>
       <LastGenOutput>Hospital.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\Mehr-Hospital-Gallery-22-1024x632.jpg" />
     <Content Include="vacuum_ljs_icon.ico" />
     <None Include="Resources\Taylor-Howes-Kensington-Penthouse-1-1-3000x1680.jpg" />
     <None Include="Resources\1.jpg" />

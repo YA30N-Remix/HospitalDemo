@@ -31,6 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.panelEx2 = new DevComponents.DotNetBar.PanelEx();
             this.sideBar1 = new DevComponents.DotNetBar.SideBar();
+            this.sideBarPanelItem3 = new DevComponents.DotNetBar.SideBarPanelItem();
+            this.btnUsers = new DevComponents.DotNetBar.ButtonItem();
+            this.btnOtagh = new DevComponents.DotNetBar.ButtonItem();
+            this.btnPaziresh = new DevComponents.DotNetBar.ButtonItem();
+            this.btnTasviyeHeasb = new DevComponents.DotNetBar.ButtonItem();
+            this.btnExit = new DevComponents.DotNetBar.ButtonItem();
             this.btnReportReciveDocument = new DevComponents.DotNetBar.ButtonItem();
             this.btnReportSendDocument = new DevComponents.DotNetBar.ButtonItem();
             this.btnReportReciveCheck = new DevComponents.DotNetBar.ButtonItem();
@@ -38,12 +44,6 @@
             this.btnReportFinancialState = new DevComponents.DotNetBar.ButtonItem();
             this.btnReportDemands = new DevComponents.DotNetBar.ButtonItem();
             this.btnPersonnelFunctionReport = new DevComponents.DotNetBar.ButtonItem();
-            this.sideBarPanelItem3 = new DevComponents.DotNetBar.SideBarPanelItem();
-            this.btnUsers = new DevComponents.DotNetBar.ButtonItem();
-            this.btnCustomers = new DevComponents.DotNetBar.ButtonItem();
-            this.btnPaziresh = new DevComponents.DotNetBar.ButtonItem();
-            this.btnTasviyeHeasb = new DevComponents.DotNetBar.ButtonItem();
-            this.btnExit = new DevComponents.DotNetBar.ButtonItem();
             this.btnPersonnelFunction = new DevComponents.DotNetBar.ButtonItem();
             this.btnChecks = new DevComponents.DotNetBar.ButtonItem();
             this.btnDocuments = new DevComponents.DotNetBar.ButtonItem();
@@ -54,7 +54,6 @@
             this.btnBackUp = new DevComponents.DotNetBar.ButtonItem();
             this.imgBackGround = new System.Windows.Forms.PictureBox();
             this.lblUserName = new System.Windows.Forms.Label();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panelEx2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgBackGround)).BeginInit();
             this.SuspendLayout();
@@ -91,6 +90,68 @@
             this.sideBar1.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.sideBar1.TabIndex = 5;
             this.sideBar1.Text = "sideBar1";
+            // 
+            // sideBarPanelItem3
+            // 
+            this.sideBarPanelItem3.FontBold = true;
+            this.sideBarPanelItem3.Name = "sideBarPanelItem3";
+            this.sideBarPanelItem3.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.btnUsers,
+            this.btnOtagh,
+            this.btnPaziresh,
+            this.btnTasviyeHeasb,
+            this.btnExit});
+            this.sideBarPanelItem3.Text = "عملیات";
+            // 
+            // btnUsers
+            // 
+            this.btnUsers.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnUsers.Image = global::Hospital.Properties.Resources.profle;
+            this.btnUsers.ImageFixedSize = new System.Drawing.Size(32, 32);
+            this.btnUsers.ImagePosition = DevComponents.DotNetBar.eImagePosition.Right;
+            this.btnUsers.Name = "btnUsers";
+            this.btnUsers.Text = "مدیریت کاربران";
+            this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
+            // 
+            // btnOtagh
+            // 
+            this.btnOtagh.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnOtagh.Image = global::Hospital.Properties.Resources.contacts;
+            this.btnOtagh.ImageFixedSize = new System.Drawing.Size(32, 32);
+            this.btnOtagh.ImagePosition = DevComponents.DotNetBar.eImagePosition.Right;
+            this.btnOtagh.Name = "btnOtagh";
+            this.btnOtagh.Text = "اتاق ها";
+            this.btnOtagh.Click += new System.EventHandler(this.btnOtagh_Click);
+            // 
+            // btnPaziresh
+            // 
+            this.btnPaziresh.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnPaziresh.Image = global::Hospital.Properties.Resources.swatches;
+            this.btnPaziresh.ImageFixedSize = new System.Drawing.Size(32, 32);
+            this.btnPaziresh.ImagePosition = DevComponents.DotNetBar.eImagePosition.Right;
+            this.btnPaziresh.Name = "btnPaziresh";
+            this.btnPaziresh.Text = "پذیرش";
+            this.btnPaziresh.Click += new System.EventHandler(this.btnPaziresh_Click);
+            // 
+            // btnTasviyeHeasb
+            // 
+            this.btnTasviyeHeasb.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnTasviyeHeasb.Image = global::Hospital.Properties.Resources.money;
+            this.btnTasviyeHeasb.ImageFixedSize = new System.Drawing.Size(32, 32);
+            this.btnTasviyeHeasb.ImagePosition = DevComponents.DotNetBar.eImagePosition.Right;
+            this.btnTasviyeHeasb.Name = "btnTasviyeHeasb";
+            this.btnTasviyeHeasb.Text = "تسویه حساب";
+            this.btnTasviyeHeasb.Click += new System.EventHandler(this.btnTasviyeHeasb_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnExit.Image = global::Hospital.Properties.Resources.power;
+            this.btnExit.ImageFixedSize = new System.Drawing.Size(32, 32);
+            this.btnExit.ImagePosition = DevComponents.DotNetBar.eImagePosition.Right;
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Text = "خروج";
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnReportReciveDocument
             // 
@@ -155,110 +216,21 @@
             this.btnPersonnelFunctionReport.Name = "btnPersonnelFunctionReport";
             this.btnPersonnelFunctionReport.Text = "گزارشات کارکرد پرسنل";
             // 
-            // sideBarPanelItem3
-            // 
-            this.sideBarPanelItem3.FontBold = true;
-            this.sideBarPanelItem3.Name = "sideBarPanelItem3";
-            this.sideBarPanelItem3.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.btnUsers,
-            this.btnCustomers,
-            this.btnPaziresh,
-            this.btnTasviyeHeasb,
-            this.btnExit});
-            this.sideBarPanelItem3.Text = "عملیات";
-            // 
-            // btnUsers
-            // 
-            this.btnUsers.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnUsers.Image = global::Hospital.Properties.Resources.profle;
-            this.btnUsers.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btnUsers.ImagePosition = DevComponents.DotNetBar.eImagePosition.Right;
-            this.btnUsers.Name = "btnUsers";
-            this.btnUsers.Text = "مدیریت کاربران";
-            this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
-            // 
-            // btnCustomers
-            // 
-            this.btnCustomers.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnCustomers.Image = global::Hospital.Properties.Resources.contacts;
-            this.btnCustomers.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btnCustomers.ImagePosition = DevComponents.DotNetBar.eImagePosition.Right;
-            this.btnCustomers.Name = "btnCustomers";
-            this.btnCustomers.Text = "اتاق ها";
-            this.btnCustomers.Click += new System.EventHandler(this.btnCustomers_Click);
-            // 
-            // btnPaziresh
-            // 
-            this.btnPaziresh.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnPaziresh.Image = global::Hospital.Properties.Resources.swatches;
-            this.btnPaziresh.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btnPaziresh.ImagePosition = DevComponents.DotNetBar.eImagePosition.Right;
-            this.btnPaziresh.Name = "btnPaziresh";
-            this.btnPaziresh.Text = "پذیرش";
-            this.btnPaziresh.Click += new System.EventHandler(this.btnCarpets_Click);
-            // 
-            // btnTasviyeHeasb
-            // 
-            this.btnTasviyeHeasb.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnTasviyeHeasb.Image = global::Hospital.Properties.Resources.money;
-            this.btnTasviyeHeasb.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btnTasviyeHeasb.ImagePosition = DevComponents.DotNetBar.eImagePosition.Right;
-            this.btnTasviyeHeasb.Name = "btnTasviyeHeasb";
-            this.btnTasviyeHeasb.Text = "تسویه حساب";
-            this.btnTasviyeHeasb.Click += new System.EventHandler(this.btnCarpetPrice_Click);
-            // 
-            // btnExit
-            // 
-            this.btnExit.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnExit.Image = global::Hospital.Properties.Resources.power;
-            this.btnExit.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btnExit.ImagePosition = DevComponents.DotNetBar.eImagePosition.Right;
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Text = "خروج";
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
             // btnPersonnelFunction
             // 
-            this.btnPersonnelFunction.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnPersonnelFunction.Image = global::Hospital.Properties.Resources.contacts;
-            this.btnPersonnelFunction.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btnPersonnelFunction.ImagePosition = DevComponents.DotNetBar.eImagePosition.Right;
-            this.btnPersonnelFunction.ImageSmall = ((System.Drawing.Image)(resources.GetObject("btnPersonnelFunction.ImageSmall")));
             this.btnPersonnelFunction.Name = "btnPersonnelFunction";
-            this.btnPersonnelFunction.Text = "کارکرد کارکنان";
-            this.btnPersonnelFunction.Click += new System.EventHandler(this.btnPersonnelFunction_Click);
             // 
             // btnChecks
             // 
-            this.btnChecks.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnChecks.Image = global::Hospital.Properties.Resources.compose;
-            this.btnChecks.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btnChecks.ImagePosition = DevComponents.DotNetBar.eImagePosition.Right;
-            this.btnChecks.ImageSmall = ((System.Drawing.Image)(resources.GetObject("btnChecks.ImageSmall")));
             this.btnChecks.Name = "btnChecks";
-            this.btnChecks.Text = "مدیریت چک ها";
-            this.btnChecks.Click += new System.EventHandler(this.btnChecks_Click);
             // 
             // btnDocuments
             // 
-            this.btnDocuments.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnDocuments.Image = global::Hospital.Properties.Resources.compose;
-            this.btnDocuments.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btnDocuments.ImagePosition = DevComponents.DotNetBar.eImagePosition.Right;
-            this.btnDocuments.ImageSmall = ((System.Drawing.Image)(resources.GetObject("btnDocuments.ImageSmall")));
             this.btnDocuments.Name = "btnDocuments";
-            this.btnDocuments.Text = "مدیریت سند ها";
-            this.btnDocuments.Click += new System.EventHandler(this.btnDocuments_Click);
             // 
             // btnCostumerBuyList
             // 
-            this.btnCostumerBuyList.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnCostumerBuyList.Image = global::Hospital.Properties.Resources.cart;
-            this.btnCostumerBuyList.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btnCostumerBuyList.ImagePosition = DevComponents.DotNetBar.eImagePosition.Right;
             this.btnCostumerBuyList.Name = "btnCostumerBuyList";
-            this.btnCostumerBuyList.Text = "لیست بازار و واسطه ای";
-            this.btnCostumerBuyList.Click += new System.EventHandler(this.btnCostumerBuyList_Click);
             // 
             // btnFactors2
             // 
@@ -300,7 +272,7 @@
             // 
             this.imgBackGround.Dock = System.Windows.Forms.DockStyle.Fill;
             this.imgBackGround.ErrorImage = null;
-            this.imgBackGround.Image = global::Hospital.Properties.Resources.Taylor_Howes_Kensington_Penthouse_1_1_3000x1680;
+            this.imgBackGround.Image = global::Hospital.Properties.Resources.Mehr_Hospital_Gallery_22_1024x632;
             this.imgBackGround.InitialImage = null;
             this.imgBackGround.Location = new System.Drawing.Point(0, 0);
             this.imgBackGround.Name = "imgBackGround";
@@ -312,16 +284,11 @@
             // lblUserName
             // 
             this.lblUserName.AutoSize = true;
-            this.lblUserName.Location = new System.Drawing.Point(342, 34);
+            this.lblUserName.Location = new System.Drawing.Point(23, 20);
             this.lblUserName.Name = "lblUserName";
             this.lblUserName.Size = new System.Drawing.Size(133, 32);
             this.lblUserName.TabIndex = 10;
             this.lblUserName.Text = "lblUserName";
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            this.openFileDialog1.Filter = "Jpeg (*.jpg)|*.jpg|Bitmap (*.bmp)|*.bmp";
             // 
             // frmMain
             // 
@@ -373,6 +340,6 @@
         private DevComponents.DotNetBar.ButtonItem btnReportDemands;
         private DevComponents.DotNetBar.ButtonItem btnPersonnelFunctionReport;
         private System.Windows.Forms.Label lblUserName;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private DevComponents.DotNetBar.ButtonItem btnOtagh;
     }
 }

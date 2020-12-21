@@ -18,55 +18,8 @@ namespace Hospital.Class
             var Emruz = p.GetYear(DateTime.Now).ToString() + "/" + p.GetMonth(DateTime.Now).ToString("0#") + "/" + p.GetDayOfMonth(DateTime.Now).ToString("0#");
             return Emruz;
         }
-
-        public static DateTime ShamsiDateToGregorianDate(string shamsidate)
-        {
-            PersianCalendar p = new PersianCalendar();
-            DateTime dt = new DateTime(Convert.ToInt32(shamsidate.Substring(0, 4)), Convert.ToInt32(shamsidate.Substring(5, 2)), Convert.ToInt32(shamsidate.Substring(8, 2)), p);
-
-            return dt;
-        }
-
-
-        public static string GregorianDateToShamsiDate(DateTime Gregoriandate)
-        {                       
-            PersianCalendar p = new PersianCalendar();
-            var Emruz = p.GetYear(Gregoriandate).ToString() + "/" + p.GetMonth(Gregoriandate).ToString("0#") + "/" + p.GetDayOfMonth(Gregoriandate).ToString("0#");
-            return Emruz;
-        }
-
-        public static string AyamHafte()
-        {
-            var Ayam = "";
-            switch (DateTime.Now.DayOfWeek)
-            {
-                case DayOfWeek.Friday:
-                    Ayam = "جمعه";
-                    break;
-                case DayOfWeek.Monday:
-                    Ayam = "دوشنبه";
-                    break;
-                case DayOfWeek.Saturday:
-                    Ayam = "شنبه";
-                    break;
-                case DayOfWeek.Sunday:
-                    Ayam = "یکشنبه";
-                    break;
-                case DayOfWeek.Thursday:
-                    Ayam = "پنجشنبه";
-                    break;
-                case DayOfWeek.Tuesday:
-                    Ayam = "سه شنبه";
-                    break;
-                case DayOfWeek.Wednesday:
-                    Ayam = "چهارشنبه";
-                    break;
-
-            }
-
-            return Ayam;
-        }
-
+    
+             
         public static string Time()
         {
             var Saat = "";
@@ -170,23 +123,7 @@ namespace Hospital.Class
             }
             return true;
         }
-
-        public static string EnCode(string input)
-        {
-
-            var byteValue = Encoding.UTF8.GetBytes(input);
-            return Convert.ToBase64String(byteValue);
-
-        }
-
-        public static string DeCode(string input)
-        {
-
-            byte[] data = Convert.FromBase64String(input);
-            string base64Decoded = System.Text.ASCIIEncoding.ASCII.GetString(data);
-            return base64Decoded;
-
-        }
+          
     }
 
 }

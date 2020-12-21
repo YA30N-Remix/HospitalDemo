@@ -52,13 +52,13 @@ namespace Hospital.Forms
                 dgv.DataSource = Query.ToList();
 
                 dgv.Columns[0].HeaderText = "کد تسویه حساب";
-                dgv.Columns[0].Width = 80;
+                dgv.Columns[0].Width = 120;
                 dgv.Columns[1].HeaderText = "نام بیمار";
-                dgv.Columns[1].Width = 80;
+                dgv.Columns[1].Width = 120;
                 dgv.Columns[2].HeaderText = "مبلغ";
                 dgv.Columns[2].Width = 120;
                 dgv.Columns[3].HeaderText = "تاریخ تسویه حساب";
-                dgv.Columns[3].Width = 100;      
+                dgv.Columns[3].Width = 140;      
 
             }
             catch (Exception ex)
@@ -107,7 +107,7 @@ namespace Hospital.Forms
                  
                 tblTasviyeHeasb.TarikhTasviyeHeasb = txtTarikhTasviyeHeasb_.MaskedTextProvider.ToDisplayString();
                     
-                tblTasviyeHeasb.Mablagh = Convert.ToInt64(txtMablagh_.Text) ;
+                tblTasviyeHeasb.Mablagh = Convert.ToInt64(txtMablagh_.Text.Replace(",", "")) ;
       
                 db.tblTasviyeHeasbs.Add(tblTasviyeHeasb);
 
@@ -149,7 +149,7 @@ namespace Hospital.Forms
                 tblTasviyeHeasb.PazireshID = frmPaziresh.tblPaziresh.PazireshID;
                 tblTasviyeHeasb.TarikhTasviyeHeasb = txtTarikhTasviyeHeasb_.MaskedTextProvider.ToDisplayString();
 
-                tblTasviyeHeasb.Mablagh = Convert.ToInt64(txtMablagh_.Text);
+                tblTasviyeHeasb.Mablagh = Convert.ToInt64(txtMablagh_.Text.Replace(",",""));
                                                                 
                 db.Entry(tblTasviyeHeasb).State = EntityState.Modified;
                 //db.Entry(tblPersonnel).Property(x => x).IsModified = true;            
@@ -174,53 +174,7 @@ namespace Hospital.Forms
                 FarsiMessagbox.Show(ClsMessage.Error + "\n" + ex.Message.ToString(), "خطا", FMessageBoxButtons.Ok, FMessageBoxIcon.Error);
             }
         }
-
-        //void ChangeStatusRow()
-        //{
-        //    try
-        //    {
-        //        HospitalEntities db = new HospitalEntities();
-        //        tblPersonnelFunction tblPersonnelFunction = db.tblPersonnelFunctions.Find(PersonnelID);
-
-        //        if (tblPersonnelFunction == null)
-        //        {
-        //            FarsiMessagbox.Show(ClsMessage.ErrNotFound, "خطا", FMessageBoxButtons.Ok, FMessageBoxIcon.Error);
-        //            return;
-        //        }
-
-        //        if (tblPersonnelFunction.Active == 1) tblPersonnelFunction.Active = 0;
-        //        else tblPersonnelFunction.Active = 1;
-
-
-        //        db.tblPersonnelFunctions.Attach(tblPersonnelFunction);
-
-        //        db.Entry(tblPersonnelFunction).Property(x => x.Active).IsModified = true; // $('#txtGoodsCode').val(),
-
-        //        db.SaveChanges();
-
-        //        LogContent = "Active = " + tblPersonnelFunction.Active;
-
-        //        ClsTools.InsertLog(25, Program.tblUserLogin.UserID, LogContent, "tblPersonnelFunction", tblPersonnelFunction.PersonnelFunctionID);
-
-        //        New();
-        //    }
-        //    catch (DbEntityValidationException ex)
-        //    {
-        //        var errorMessages = ex.EntityValidationErrors.SelectMany(x => x.ValidationErrors).Select(x => x.ErrorMessage);
-        //        var fullErrorMessage = string.Join("\n", errorMessages);
-        //        var exceptionMessage = string.Concat(ClsMessage.Error, ex.Message, " The validation errors are: ", fullErrorMessage);
-        //        FarsiMessagbox.Show(exceptionMessage, "خطا", FMessageBoxButtons.Ok, FMessageBoxIcon.Error);
-        //    }
-        //    catch (DbUpdateException ex)
-        //    {
-        //        FarsiMessagbox.Show(ClsMessage.Error + "\n" + ex.Message.ToString(), "خطا", FMessageBoxButtons.Ok, FMessageBoxIcon.Error);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        FarsiMessagbox.Show(ClsMessage.Error + "\n" + ex.Message.ToString(), "خطا", FMessageBoxButtons.Ok, FMessageBoxIcon.Error);
-        //    }
-        //}
-
+   
         void DeleteRow()
         {
             try

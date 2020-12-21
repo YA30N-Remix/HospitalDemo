@@ -40,7 +40,7 @@ namespace Hospital
                       
                     string password = "";
                     LogContent = "UserName = " + txtUserName.Text;
-                    password = ClsTools.EnCode(txtPassword.Text);
+                    password = txtPassword.Text;
                     Program.tblUserLogin = db.tblUsers.Where(x => x.UserName == txtUserName.Text && x.PassWord == password).FirstOrDefault();
 
                     if (Program.tblUserLogin != null)

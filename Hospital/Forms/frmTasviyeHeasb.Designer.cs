@@ -43,13 +43,13 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.txtTarikhTasviyeHeasb_ = new System.Windows.Forms.MaskedTextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.btnSelectBimar = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtTarikhTasviyeHeasb_ = new System.Windows.Forms.MaskedTextBox();
             this.pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.panel1.SuspendLayout();
@@ -194,8 +194,8 @@
             this.txtMablagh_.MaxLength = 50;
             this.txtMablagh_.Name = "txtMablagh_";
             this.txtMablagh_.Size = new System.Drawing.Size(191, 29);
-            this.txtMablagh_.TabIndex = 7;
-            this.txtMablagh_.TextChanged += new System.EventHandler(this.txtPrice__TextChanged);                                                                                                                                                                                                 
+            this.txtMablagh_.TabIndex = 2;
+            this.txtMablagh_.TextChanged += new System.EventHandler(this.txtPrice__TextChanged);
             // 
             // txtBimarName
             // 
@@ -238,6 +238,17 @@
             this.label3.Text = "مبلغ";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // txtTarikhTasviyeHeasb_
+            // 
+            this.txtTarikhTasviyeHeasb_.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
+            this.txtTarikhTasviyeHeasb_.Location = new System.Drawing.Point(10, 32);
+            this.txtTarikhTasviyeHeasb_.Mask = "0000/00/00";
+            this.txtTarikhTasviyeHeasb_.Name = "txtTarikhTasviyeHeasb_";
+            this.txtTarikhTasviyeHeasb_.Size = new System.Drawing.Size(191, 29);
+            this.txtTarikhTasviyeHeasb_.TabIndex = 3;
+            this.txtTarikhTasviyeHeasb_.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePrompt;
+            this.txtTarikhTasviyeHeasb_.ValidatingType = typeof(System.DateTime);
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -268,6 +279,16 @@
             this.label7.Text = "انتخاب بیمار";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(163, 8);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 22);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "تاریخ";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.HeaderText = "ویرایش";
@@ -281,28 +302,6 @@
             this.dataGridViewImageColumn2.Image = global::Hospital.Properties.Resources.Delete;
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(163, 8);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 22);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "تاریخ";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtTarikhTasviyeHeasb_
-            // 
-            this.txtTarikhTasviyeHeasb_.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
-            this.txtTarikhTasviyeHeasb_.Location = new System.Drawing.Point(10, 32);
-            this.txtTarikhTasviyeHeasb_.Mask = "0000/00/00";
-            this.txtTarikhTasviyeHeasb_.Name = "txtTarikhTasviyeHeasb_";
-            this.txtTarikhTasviyeHeasb_.ReadOnly = true;
-            this.txtTarikhTasviyeHeasb_.Size = new System.Drawing.Size(191, 29);
-            this.txtTarikhTasviyeHeasb_.TabIndex = 6;
-            this.txtTarikhTasviyeHeasb_.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePrompt;
-            this.txtTarikhTasviyeHeasb_.ValidatingType = typeof(System.DateTime);
             // 
             // frmTasviyeHeasb
             // 
@@ -318,7 +317,7 @@
             this.MaximizeBox = false;
             this.Name = "frmTasviyeHeasb";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "مدیریت سند ها";
+            this.Text = "تسویه حساب";
             this.Load += new System.EventHandler(this.frmDocuments_Load);
             this.pnlGrid.ResumeLayout(false);
             this.pnlGrid.PerformLayout();

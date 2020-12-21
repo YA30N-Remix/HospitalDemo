@@ -52,8 +52,8 @@ namespace Hospital.Forms
                 dgv.Columns[2].Width = 100;
                 dgv.Columns[3].HeaderText = "نام کاربری";
                 dgv.Columns[3].Width = 120;   
-                dgv.Columns[5].HeaderText = "وضعیت";
-                dgv.Columns[5].Width = 100;
+                dgv.Columns[4].HeaderText = "وضعیت";
+                dgv.Columns[4].Width = 100;
 
             }
             catch (Exception ex)
@@ -76,8 +76,8 @@ namespace Hospital.Forms
                 txtName_.Text = tblUser.Name;
                 txtLastName_.Text = tblUser.LastName;
                 txtUserName_.Text = tblUser.UserName;
-                txtPassWord_.Text = ClsTools.DeCode(tblUser.PassWord);
-                txtRePassWord_.Text = ClsTools.DeCode(tblUser.PassWord);   
+                txtPassWord_.Text =  tblUser.PassWord;
+                txtRePassWord_.Text =  tblUser.PassWord;   
                  
             }
             catch (Exception ex)
@@ -92,13 +92,20 @@ namespace Hospital.Forms
             {
                 HospitalEntities db = new HospitalEntities();
                 tblUser tblUser = new tblUser();
+                var Query = from a in db.tblUsers
+                            where a.UserName == txtUserName_.Text
+                            select a.UserName;
+                if (Query.Count()>0)
+                {
+                    FarsiMessagbox.Show(ClsMessage.ErrRepeat, "خطا", FMessageBoxButtons.Ok, FMessageBoxIcon.Error);
+                    return;
+                }
 
-                                  
                 tblUser.Name = txtName_.Text;
                 tblUser.LastName = txtLastName_.Text;
             
                 tblUser.UserName = txtUserName_.Text;
-                tblUser.PassWord = ClsTools.EnCode(txtPassWord_.Text);       
+                tblUser.PassWord = txtPassWord_.Text;       
                 tblUser.Active = 1;                               
                 db.tblUsers.Add(tblUser);
                 db.SaveChanges();
@@ -150,7 +157,7 @@ namespace Hospital.Forms
                 tblUser.Name = txtName_.Text;
                 tblUser.LastName = txtLastName_.Text;      
                 tblUser.UserName = txtUserName_.Text;
-                tblUser.PassWord = ClsTools.EnCode(txtPassWord_.Text);  
+                tblUser.PassWord = txtPassWord_.Text;  
 
                 db.Entry(tblUser).State = EntityState.Modified;
                 //db.Entry(tblPersonnel).Property(x => x).IsModified = true;

@@ -14,8 +14,7 @@ namespace Hospital.Class
         public static string ErrNotFound = "کد خطا ۴ : اطلاعات بارگزاری نشد.";
         public static string ErrNotDelete = "کد خطا ۵ : سیستم قادر به حذف این رکورد نمی باشد.";
         public static string ErrNotRegEmptyValue = "کد خطا ۵ : سیستم قادر به ثبت اطلاعات ناقص نمی باشد.";
-        public static string ErrNotGetEmptyValue = "کد خطا ۶ : اطلاعات درخواستی ناقص می باشد.";
-        public static string ErrorSizeFile = "اندازه فایل غیر مجاز می باشد";
+        public static string ErrNotGetEmptyValue = "کد خطا ۶ : اطلاعات درخواستی ناقص می باشد.";               
     }
 
 }

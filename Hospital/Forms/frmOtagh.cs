@@ -69,11 +69,12 @@ namespace Hospital.Forms
 
                
               cmbBakhsh_.DataSource = Query.ToList();
-                       
+
+                cmbBakhsh_.DisplayMember = "BakhshName";
+                cmbBakhsh_.ValueMember = "BakshID";
             }
             catch (Exception ex)
-            {
-                FarsiMessagbox.Show(ClsMessage.Error + "\n" + ex.Message.ToString(), "خطا", FMessageBoxButtons.Ok, FMessageBoxIcon.Error);
+            {                  
             }
         }
 

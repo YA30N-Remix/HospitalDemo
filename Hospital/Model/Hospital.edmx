@@ -99,13 +99,13 @@
         </Association>
         <Association Name="FK_tblTasviyeHeasb_tblPaziresh">
           <End Role="tblPaziresh" Type="Self.tblPaziresh" Multiplicity="1" />
-          <End Role="tblTasviyeHeasb" Type="Self.tblTasviyeHeasb" Multiplicity="0..1" />
+          <End Role="tblTasviyeHeasb" Type="Self.tblTasviyeHeasb" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblPaziresh">
               <PropertyRef Name="PazireshID" />
             </Principal>
             <Dependent Role="tblTasviyeHeasb">
-              <PropertyRef Name="TasviyeHeasbID" />
+              <PropertyRef Name="PazireshID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -141,7 +141,6 @@
           <EntitySet Name="tblUsers" EntityType="HospitalModel.tblUser" />
           <EntitySet Name="tblBakhshes" EntityType="HospitalModel.tblBakhsh" />
           <EntitySet Name="tblOtaghs" EntityType="HospitalModel.tblOtagh" />
-          <EntitySet Name="tblTasviyeHeasbs" EntityType="HospitalModel.tblTasviyeHeasb" />
           <AssociationSet Name="FK_tblOtagh_tblBakhsh" Association="HospitalModel.FK_tblOtagh_tblBakhsh">
             <End Role="tblBakhsh" EntitySet="tblBakhshes" />
             <End Role="tblOtagh" EntitySet="tblOtaghs" />
@@ -156,6 +155,7 @@
             <End Role="tblPezeshk" EntitySet="tblPezeshks" />
             <End Role="tblPaziresh" EntitySet="tblPazireshes" />
           </AssociationSet>
+          <EntitySet Name="tblTasviyeHeasbs" EntityType="HospitalModel.tblTasviyeHeasb" />
           <AssociationSet Name="FK_tblTasviyeHeasb_tblPaziresh" Association="HospitalModel.FK_tblTasviyeHeasb_tblPaziresh">
             <End Role="tblPaziresh" EntitySet="tblPazireshes" />
             <End Role="tblTasviyeHeasb" EntitySet="tblTasviyeHeasbs" />
@@ -190,16 +190,6 @@
           <NavigationProperty Name="tblBakhsh" Relationship="HospitalModel.FK_tblOtagh_tblBakhsh" FromRole="tblOtagh" ToRole="tblBakhsh" />
           <NavigationProperty Name="tblPazireshes" Relationship="HospitalModel.FK_tblPaziresh_tblOtagh" FromRole="tblOtagh" ToRole="tblPaziresh" />
         </EntityType>
-        <EntityType Name="tblTasviyeHeasb">
-          <Key>
-            <PropertyRef Name="TasviyeHeasbID" />
-          </Key>
-          <Property Name="TasviyeHeasbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PazireshID" Type="Int32" Nullable="false" />
-          <Property Name="Mablagh" Type="Int64" Nullable="false" />
-          <Property Name="TarikhTasviyeHeasb" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="tblPaziresh" Relationship="HospitalModel.FK_tblTasviyeHeasb_tblPaziresh" FromRole="tblTasviyeHeasb" ToRole="tblPaziresh" />
-        </EntityType>
         <Association Name="FK_tblOtagh_tblBakhsh">
           <End Type="HospitalModel.tblBakhsh" Role="tblBakhsh" Multiplicity="1" />
           <End Type="HospitalModel.tblOtagh" Role="tblOtagh" Multiplicity="*" />
@@ -226,7 +216,7 @@
           <Property Name="CodeBimeBimar" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="tblOtagh" Relationship="HospitalModel.FK_tblPaziresh_tblOtagh" FromRole="tblPaziresh" ToRole="tblOtagh" />
           <NavigationProperty Name="tblPezeshk" Relationship="HospitalModel.FK_tblPaziresh_tblPaziresh" FromRole="tblPaziresh" ToRole="tblPezeshk" />
-          <NavigationProperty Name="tblTasviyeHeasb" Relationship="HospitalModel.FK_tblTasviyeHeasb_tblPaziresh" FromRole="tblPaziresh" ToRole="tblTasviyeHeasb" />
+          <NavigationProperty Name="tblTasviyeHeasbs" Relationship="HospitalModel.FK_tblTasviyeHeasb_tblPaziresh" FromRole="tblPaziresh" ToRole="tblTasviyeHeasb" />
         </EntityType>
         <EntityType Name="tblPezeshk">
           <Key>
@@ -261,15 +251,25 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="tblTasviyeHeasb">
+          <Key>
+            <PropertyRef Name="TasviyeHeasbID" />
+          </Key>
+          <Property Name="TasviyeHeasbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PazireshID" Type="Int32" Nullable="false" />
+          <Property Name="Mablagh" Type="Int64" Nullable="false" />
+          <Property Name="TarikhTasviyeHeasb" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblPaziresh" Relationship="HospitalModel.FK_tblTasviyeHeasb_tblPaziresh" FromRole="tblTasviyeHeasb" ToRole="tblPaziresh" />
+        </EntityType>
         <Association Name="FK_tblTasviyeHeasb_tblPaziresh">
           <End Type="HospitalModel.tblPaziresh" Role="tblPaziresh" Multiplicity="1" />
-          <End Type="HospitalModel.tblTasviyeHeasb" Role="tblTasviyeHeasb" Multiplicity="0..1" />
+          <End Type="HospitalModel.tblTasviyeHeasb" Role="tblTasviyeHeasb" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblPaziresh">
               <PropertyRef Name="PazireshID" />
             </Principal>
             <Dependent Role="tblTasviyeHeasb">
-              <PropertyRef Name="TasviyeHeasbID" />
+              <PropertyRef Name="PazireshID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -308,16 +308,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tblTasviyeHeasbs">
-            <EntityTypeMapping TypeName="HospitalModel.tblTasviyeHeasb">
-              <MappingFragment StoreEntitySet="tblTasviyeHeasb">
-                <ScalarProperty Name="TarikhTasviyeHeasb" ColumnName="TarikhTasviyeHeasb" />
-                <ScalarProperty Name="Mablagh" ColumnName="Mablagh" />
-                <ScalarProperty Name="PazireshID" ColumnName="PazireshID" />
-                <ScalarProperty Name="TasviyeHeasbID" ColumnName="TasviyeHeasbID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="tblPazireshes">
             <EntityTypeMapping TypeName="HospitalModel.tblPaziresh">
               <MappingFragment StoreEntitySet="tblPaziresh">
@@ -338,6 +328,16 @@
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="PezeshkID" ColumnName="PezeshkID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblTasviyeHeasbs">
+            <EntityTypeMapping TypeName="HospitalModel.tblTasviyeHeasb">
+              <MappingFragment StoreEntitySet="tblTasviyeHeasb">
+                <ScalarProperty Name="TarikhTasviyeHeasb" ColumnName="TarikhTasviyeHeasb" />
+                <ScalarProperty Name="Mablagh" ColumnName="Mablagh" />
+                <ScalarProperty Name="PazireshID" ColumnName="PazireshID" />
+                <ScalarProperty Name="TasviyeHeasbID" ColumnName="TasviyeHeasbID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
