@@ -170,7 +170,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="bin\Debug\Reports\rptFactor.mrt" />
     <EntityDeploy Include="Model\Hospital.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Hospital.Designer.cs</LastGenOutput>
