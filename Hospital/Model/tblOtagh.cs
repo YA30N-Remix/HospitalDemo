@@ -12,14 +12,12 @@ namespace Hospital.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class tblNote
+    public partial class tblOtagh
     {
-        public decimal NoteID { get; set; }
-        public string Title { get; set; }
-        public string Note { get; set; }
-        public string StartDate { get; set; }
-        public string EndDate { get; set; }
-        public string Description { get; set; }
-        public string RegisterDate { get; set; }
+        public int OtaghID { get; set; }
+        public string CodeOtagh { get; set; }
+        public int BakshID { get; set; }
+    
+        public virtual tblBakhsh tblBakhsh { get; set; }
     }
 }

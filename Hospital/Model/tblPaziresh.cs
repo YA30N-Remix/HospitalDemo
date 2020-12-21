@@ -12,17 +12,15 @@ namespace Hospital.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class tblLog
+    public partial class tblPaziresh
     {
-        public decimal LogID { get; set; }
-        public int LogTypeID { get; set; }
-        public int UserID { get; set; }
-        public string LogContent { get; set; }
-        public string TableName { get; set; }
-        public decimal TableKeyID { get; set; }
-        public string LogDate { get; set; }
-        public string LogTime { get; set; }
+        public int PazireshID { get; set; }
+        public string TarikhPaziresh { get; set; }
+        public int BimarID { get; set; }
+        public int DoctorID { get; set; }
     
-        public virtual tblLogType tblLogType { get; set; }
+        public virtual tblBimar tblBimar { get; set; }
+        public virtual tblDoctor tblDoctor { get; set; }
+        public virtual tblTasviyeHeasb tblTasviyeHeasb { get; set; }
     }
 }

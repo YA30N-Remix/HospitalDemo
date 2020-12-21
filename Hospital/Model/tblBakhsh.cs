@@ -12,24 +12,18 @@ namespace Hospital.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class tblFactor
+    public partial class tblBakhsh
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tblFactor()
+        public tblBakhsh()
         {
-            this.tblFactorsLists = new HashSet<tblFactorsList>();
+            this.tblOtaghs = new HashSet<tblOtagh>();
         }
     
-        public decimal FactorID { get; set; }
-        public short FactorTypeID { get; set; }
-        public string FactorDate { get; set; }
-        public int CustomerID { get; set; }
-        public string CustomerName { get; set; }
-        public string CustomerMobile { get; set; }
-        public string Description { get; set; }
-        public string RegisterDate { get; set; }
+        public int BakshID { get; set; }
+        public string BakhshName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblFactorsList> tblFactorsLists { get; set; }
+        public virtual ICollection<tblOtagh> tblOtaghs { get; set; }
     }
 }

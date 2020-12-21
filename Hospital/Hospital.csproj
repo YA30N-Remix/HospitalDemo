@@ -148,65 +148,41 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\CarpetCleaning.Context.cs">
+    <Compile Include="Model\Hospital.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CarpetCleaning.Context.tt</DependentUpon>
+      <DependentUpon>Hospital.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\CarpetCleaning.cs">
+    <Compile Include="Model\Hospital.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CarpetCleaning.tt</DependentUpon>
+      <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\CarpetCleaning.Designer.cs">
+    <Compile Include="Model\Hospital.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CarpetCleaning.edmx</DependentUpon>
+      <DependentUpon>Hospital.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Model\tblCarpet.cs">
-      <DependentUpon>CarpetCleaning.tt</DependentUpon>
+    <Compile Include="Model\tblBakhsh.cs">
+      <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\tblCarpetPrice.cs">
-      <DependentUpon>CarpetCleaning.tt</DependentUpon>
+    <Compile Include="Model\tblBimar.cs">
+      <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\tblCheck.cs">
-      <DependentUpon>CarpetCleaning.tt</DependentUpon>
+    <Compile Include="Model\tblDoctor.cs">
+      <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\tblCustomer.cs">
-      <DependentUpon>CarpetCleaning.tt</DependentUpon>
+    <Compile Include="Model\tblOtagh.cs">
+      <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\tblCustomerBuy.cs">
-      <DependentUpon>CarpetCleaning.tt</DependentUpon>
+    <Compile Include="Model\tblPaziresh.cs">
+      <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\tblCustomerBuyList.cs">
-      <DependentUpon>CarpetCleaning.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\tblDocument.cs">
-      <DependentUpon>CarpetCleaning.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\tblFactor.cs">
-      <DependentUpon>CarpetCleaning.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\tblFactorsList.cs">
-      <DependentUpon>CarpetCleaning.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\tblLog.cs">
-      <DependentUpon>CarpetCleaning.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\tblLogType.cs">
-      <DependentUpon>CarpetCleaning.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\tblNote.cs">
-      <DependentUpon>CarpetCleaning.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\tblPersonnel.cs">
-      <DependentUpon>CarpetCleaning.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\tblPersonnelFunction.cs">
-      <DependentUpon>CarpetCleaning.tt</DependentUpon>
+    <Compile Include="Model\tblTasviyeHeasb.cs">
+      <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\tblUser.cs">
-      <DependentUpon>CarpetCleaning.tt</DependentUpon>
+      <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -261,12 +237,12 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="bin\Debug\Reports\rptFactor.mrt" />
-    <EntityDeploy Include="Model\CarpetCleaning.edmx">
+    <EntityDeploy Include="Model\Hospital.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CarpetCleaning.Designer.cs</LastGenOutput>
+      <LastGenOutput>Hospital.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\CarpetCleaning.edmx.diagram">
-      <DependentUpon>CarpetCleaning.edmx</DependentUpon>
+    <None Include="Model\Hospital.edmx.diagram">
+      <DependentUpon>Hospital.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\CarpetCleaning.Forms.BasicInformation.frmUsers.datasource" />
@@ -295,15 +271,15 @@
   <ItemGroup>
     <None Include="Resources\money.png" />
     <None Include="Resources\slr.png" />
-    <Content Include="Model\CarpetCleaning.Context.tt">
+    <Content Include="Model\Hospital.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CarpetCleaning.edmx</DependentUpon>
-      <LastGenOutput>CarpetCleaning.Context.cs</LastGenOutput>
+      <DependentUpon>Hospital.edmx</DependentUpon>
+      <LastGenOutput>Hospital.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Model\CarpetCleaning.tt">
+    <Content Include="Model\Hospital.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CarpetCleaning.edmx</DependentUpon>
-      <LastGenOutput>CarpetCleaning.cs</LastGenOutput>
+      <DependentUpon>Hospital.edmx</DependentUpon>
+      <LastGenOutput>Hospital.cs</LastGenOutput>
     </Content>
     <Content Include="vacuum_ljs_icon.ico" />
     <None Include="Resources\Taylor-Howes-Kensington-Penthouse-1-1-3000x1680.jpg" />

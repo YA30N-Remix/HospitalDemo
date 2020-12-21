@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.panelEx2 = new DevComponents.DotNetBar.PanelEx();
             this.sideBar1 = new DevComponents.DotNetBar.SideBar();
-            this.sideBarPanelItem5 = new DevComponents.DotNetBar.SideBarPanelItem();
             this.btnReportReciveDocument = new DevComponents.DotNetBar.ButtonItem();
             this.btnReportSendDocument = new DevComponents.DotNetBar.ButtonItem();
             this.btnReportReciveCheck = new DevComponents.DotNetBar.ButtonItem();
@@ -51,16 +50,14 @@
             this.btnPersonnelFunction = new DevComponents.DotNetBar.ButtonItem();
             this.btnChecks = new DevComponents.DotNetBar.ButtonItem();
             this.btnDocuments = new DevComponents.DotNetBar.ButtonItem();
-            this.sideBarPanelItem2 = new DevComponents.DotNetBar.SideBarPanelItem();
             this.btnCostumerBuyList = new DevComponents.DotNetBar.ButtonItem();
             this.btnFactors2 = new DevComponents.DotNetBar.ButtonItem();
             this.btnFactors = new DevComponents.DotNetBar.ButtonItem();
-            this.sideBarPanelItem4 = new DevComponents.DotNetBar.SideBarPanelItem();
             this.btnSettings = new DevComponents.DotNetBar.ButtonItem();
             this.btnBackUp = new DevComponents.DotNetBar.ButtonItem();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.imgBackGround = new System.Windows.Forms.PictureBox();
             this.lblUserName = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panelEx2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgBackGround)).BeginInit();
             this.SuspendLayout();
@@ -87,34 +84,17 @@
             this.sideBar1.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolBar;
             this.sideBar1.BorderStyle = DevComponents.DotNetBar.eBorderType.None;
             this.sideBar1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sideBar1.ExpandedPanel = this.sideBarPanelItem5;
+            this.sideBar1.ExpandedPanel = this.sideBarPanelItem3;
             this.sideBar1.Font = new System.Drawing.Font("IRANSansWeb", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sideBar1.Location = new System.Drawing.Point(0, 0);
             this.sideBar1.Name = "sideBar1";
             this.sideBar1.Panels.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.sideBarPanelItem3,
-            this.sideBarPanelItem1,
-            this.sideBarPanelItem2,
-            this.sideBarPanelItem4,
-            this.sideBarPanelItem5});
+            this.sideBarPanelItem1});
             this.sideBar1.Size = new System.Drawing.Size(250, 564);
             this.sideBar1.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.sideBar1.TabIndex = 5;
             this.sideBar1.Text = "sideBar1";
-            // 
-            // sideBarPanelItem5
-            // 
-            this.sideBarPanelItem5.FontBold = true;
-            this.sideBarPanelItem5.Name = "sideBarPanelItem5";
-            this.sideBarPanelItem5.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.btnReportReciveDocument,
-            this.btnReportSendDocument,
-            this.btnReportReciveCheck,
-            this.btnReportSendCheck,
-            this.btnReportFinancialState,
-            this.btnReportDemands,
-            this.btnPersonnelFunctionReport});
-            this.sideBarPanelItem5.Text = "گزارشات";
             // 
             // btnReportReciveDocument
             // 
@@ -312,16 +292,6 @@
             this.btnDocuments.Text = "مدیریت سند ها";
             this.btnDocuments.Click += new System.EventHandler(this.btnDocuments_Click);
             // 
-            // sideBarPanelItem2
-            // 
-            this.sideBarPanelItem2.FontBold = true;
-            this.sideBarPanelItem2.Name = "sideBarPanelItem2";
-            this.sideBarPanelItem2.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.btnCostumerBuyList,
-            this.btnFactors2,
-            this.btnFactors});
-            this.sideBarPanelItem2.Text = "عملیات روزانه";
-            // 
             // btnCostumerBuyList
             // 
             this.btnCostumerBuyList.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
@@ -350,15 +320,6 @@
             this.btnFactors.Name = "btnFactors";
             this.btnFactors.Text = "صدور فاکتور خانه دار و کارخانه";
             // 
-            // sideBarPanelItem4
-            // 
-            this.sideBarPanelItem4.FontBold = true;
-            this.sideBarPanelItem4.Name = "sideBarPanelItem4";
-            this.sideBarPanelItem4.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.btnSettings,
-            this.btnBackUp});
-            this.sideBarPanelItem4.Text = "تنظیمات";
-            // 
             // btnSettings
             // 
             this.btnSettings.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
@@ -376,11 +337,6 @@
             this.btnBackUp.ImagePosition = DevComponents.DotNetBar.eImagePosition.Right;
             this.btnBackUp.Name = "btnBackUp";
             this.btnBackUp.Text = "پشتیبان گیری";
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            this.openFileDialog1.Filter = "Jpeg (*.jpg)|*.jpg|Bitmap (*.bmp)|*.bmp";
             // 
             // imgBackGround
             // 
@@ -403,6 +359,11 @@
             this.lblUserName.Size = new System.Drawing.Size(133, 32);
             this.lblUserName.TabIndex = 10;
             this.lblUserName.Text = "lblUserName";
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Filter = "Jpeg (*.jpg)|*.jpg|Bitmap (*.bmp)|*.bmp";
             // 
             // frmMain
             // 
@@ -433,9 +394,7 @@
         private DevComponents.DotNetBar.SideBar sideBar1;
         private DevComponents.DotNetBar.SideBarPanelItem sideBarPanelItem1;
         private DevComponents.DotNetBar.ButtonItem btnPersonnelFunction;
-        private DevComponents.DotNetBar.SideBarPanelItem sideBarPanelItem2;
         private DevComponents.DotNetBar.SideBarPanelItem sideBarPanelItem3;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private DevComponents.DotNetBar.ButtonItem btnUsers;
         private DevComponents.DotNetBar.ButtonItem btnPersonnels;
         private System.Windows.Forms.PictureBox imgBackGround;
@@ -444,11 +403,9 @@
         private DevComponents.DotNetBar.ButtonItem btnCarpets;
         private DevComponents.DotNetBar.ButtonItem btnExit;
         private DevComponents.DotNetBar.ButtonItem btnChecks;
-        private DevComponents.DotNetBar.SideBarPanelItem sideBarPanelItem4;
         private DevComponents.DotNetBar.ButtonItem btnSettings;
         private DevComponents.DotNetBar.ButtonItem btnBackUp;
         private DevComponents.DotNetBar.ButtonItem btnDocuments;
-        private DevComponents.DotNetBar.SideBarPanelItem sideBarPanelItem5;
         private DevComponents.DotNetBar.ButtonItem btnReportReciveDocument;
         private DevComponents.DotNetBar.ButtonItem btnCostumerBuyList;
         private DevComponents.DotNetBar.ButtonItem btnFactors;
@@ -461,5 +418,6 @@
         private DevComponents.DotNetBar.ButtonItem btnReportDemands;
         private DevComponents.DotNetBar.ButtonItem btnPersonnelFunctionReport;
         private System.Windows.Forms.Label lblUserName;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

@@ -12,19 +12,19 @@ namespace Hospital.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class tblLogType
+    public partial class tblDoctor
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tblLogType()
+        public tblDoctor()
         {
-            this.tblLogs = new HashSet<tblLog>();
+            this.tblPazireshes = new HashSet<tblPaziresh>();
         }
     
-        public int LogTypeID { get; set; }
-        public string LogTypeName { get; set; }
-        public short RegTypeID { get; set; }
+        public int DoctorID { get; set; }
+        public string Name { get; set; }
+        public string LastName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblLog> tblLogs { get; set; }
+        public virtual ICollection<tblPaziresh> tblPazireshes { get; set; }
     }
 }

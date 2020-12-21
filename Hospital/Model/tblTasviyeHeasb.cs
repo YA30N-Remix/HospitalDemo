@@ -12,13 +12,12 @@ namespace Hospital.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class tblUser
+    public partial class tblTasviyeHeasb
     {
-        public int UserID { get; set; }
-        public string Name { get; set; }
-        public string LastName { get; set; }
-        public string UserName { get; set; }
-        public string PassWord { get; set; }
-        public short Active { get; set; }
+        public int TasviyeHeasbID { get; set; }
+        public int PazireshID { get; set; }
+        public long Mablagh { get; set; }
+    
+        public virtual tblPaziresh tblPaziresh { get; set; }
     }
 }
