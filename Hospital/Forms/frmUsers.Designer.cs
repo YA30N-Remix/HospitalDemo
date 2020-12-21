@@ -1,4 +1,4 @@
-﻿namespace Hospital.Forms.BasicInformation
+﻿namespace Hospital.Forms
 {
     partial class frmUsers
     {
@@ -29,26 +29,17 @@
         private void InitializeComponent()
         {
             this.pnlNewEdit = new System.Windows.Forms.Panel();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.imgBox = new System.Windows.Forms.PictureBox();
-            this.btnSelectImage = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.txtRePassWord_ = new System.Windows.Forms.TextBox();
-            this.txtMobile_ = new System.Windows.Forms.MaskedTextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtDescription = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtPassWord_ = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtUserName_ = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtLastName_ = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -57,9 +48,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.dgv = new System.Windows.Forms.DataGridView();
-            this.ofdImage_ = new System.Windows.Forms.OpenFileDialog();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnSelect = new System.Windows.Forms.Button();
             this.btnChangeStatus = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
@@ -67,7 +56,6 @@
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.pnlNewEdit.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgBox)).BeginInit();
             this.pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.panel1.SuspendLayout();
@@ -76,26 +64,17 @@
             // pnlNewEdit
             // 
             this.pnlNewEdit.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.pnlNewEdit.Controls.Add(this.label16);
-            this.pnlNewEdit.Controls.Add(this.label15);
             this.pnlNewEdit.Controls.Add(this.label14);
             this.pnlNewEdit.Controls.Add(this.label13);
             this.pnlNewEdit.Controls.Add(this.label12);
-            this.pnlNewEdit.Controls.Add(this.label11);
             this.pnlNewEdit.Controls.Add(this.label10);
             this.pnlNewEdit.Controls.Add(this.label9);
-            this.pnlNewEdit.Controls.Add(this.imgBox);
-            this.pnlNewEdit.Controls.Add(this.btnSelectImage);
             this.pnlNewEdit.Controls.Add(this.label7);
             this.pnlNewEdit.Controls.Add(this.txtRePassWord_);
-            this.pnlNewEdit.Controls.Add(this.txtMobile_);
-            this.pnlNewEdit.Controls.Add(this.label6);
-            this.pnlNewEdit.Controls.Add(this.txtDescription);
             this.pnlNewEdit.Controls.Add(this.label5);
             this.pnlNewEdit.Controls.Add(this.txtPassWord_);
             this.pnlNewEdit.Controls.Add(this.label4);
             this.pnlNewEdit.Controls.Add(this.txtUserName_);
-            this.pnlNewEdit.Controls.Add(this.label3);
             this.pnlNewEdit.Controls.Add(this.label2);
             this.pnlNewEdit.Controls.Add(this.txtLastName_);
             this.pnlNewEdit.Controls.Add(this.label1);
@@ -103,34 +82,14 @@
             this.pnlNewEdit.Location = new System.Drawing.Point(2, 2);
             this.pnlNewEdit.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.pnlNewEdit.Name = "pnlNewEdit";
-            this.pnlNewEdit.Size = new System.Drawing.Size(857, 242);
+            this.pnlNewEdit.Size = new System.Drawing.Size(857, 136);
             this.pnlNewEdit.TabIndex = 0;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(771, 130);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(77, 22);
-            this.label16.TabIndex = 27;
-            this.label16.Text = "عکس کاربری";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(749, 130);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(16, 22);
-            this.label15.TabIndex = 26;
-            this.label15.Text = "*";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.ForeColor = System.Drawing.Color.Red;
-            this.label14.Location = new System.Drawing.Point(524, 69);
+            this.label14.Location = new System.Drawing.Point(306, 69);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(16, 22);
             this.label14.TabIndex = 25;
@@ -140,7 +99,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.ForeColor = System.Drawing.Color.Red;
-            this.label13.Location = new System.Drawing.Point(769, 69);
+            this.label13.Location = new System.Drawing.Point(552, 69);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(16, 22);
             this.label13.TabIndex = 24;
@@ -150,21 +109,11 @@
             // 
             this.label12.AutoSize = true;
             this.label12.ForeColor = System.Drawing.Color.Red;
-            this.label12.Location = new System.Drawing.Point(122, 8);
+            this.label12.Location = new System.Drawing.Point(761, 69);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(16, 22);
             this.label12.TabIndex = 23;
             this.label12.Text = "*";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.ForeColor = System.Drawing.Color.Red;
-            this.label11.Location = new System.Drawing.Point(321, 8);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(16, 22);
-            this.label11.TabIndex = 22;
-            this.label11.Text = "*";
             // 
             // label10
             // 
@@ -186,28 +135,10 @@
             this.label9.TabIndex = 20;
             this.label9.Text = "*";
             // 
-            // imgBox
-            // 
-            this.imgBox.Location = new System.Drawing.Point(524, 133);
-            this.imgBox.Name = "imgBox";
-            this.imgBox.Size = new System.Drawing.Size(107, 106);
-            this.imgBox.TabIndex = 19;
-            this.imgBox.TabStop = false;
-            // 
-            // btnSelectImage
-            // 
-            this.btnSelectImage.Location = new System.Drawing.Point(657, 155);
-            this.btnSelectImage.Name = "btnSelectImage";
-            this.btnSelectImage.Size = new System.Drawing.Size(191, 29);
-            this.btnSelectImage.TabIndex = 8;
-            this.btnSelectImage.Text = "انتخاب عکس";
-            this.btnSelectImage.UseVisualStyleBackColor = true;
-            this.btnSelectImage.Click += new System.EventHandler(this.btnSelectImage_Click);
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(546, 69);
+            this.label7.Location = new System.Drawing.Point(328, 69);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(85, 22);
             this.label7.TabIndex = 17;
@@ -216,7 +147,7 @@
             // 
             // txtRePassWord_
             // 
-            this.txtRePassWord_.Location = new System.Drawing.Point(440, 96);
+            this.txtRePassWord_.Location = new System.Drawing.Point(222, 96);
             this.txtRePassWord_.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtRePassWord_.MaxLength = 100;
             this.txtRePassWord_.Name = "txtRePassWord_";
@@ -225,39 +156,10 @@
             this.txtRePassWord_.Size = new System.Drawing.Size(191, 29);
             this.txtRePassWord_.TabIndex = 6;
             // 
-            // txtMobile_
-            // 
-            this.txtMobile_.Location = new System.Drawing.Point(222, 35);
-            this.txtMobile_.Mask = "0000-000-0000";
-            this.txtMobile_.Name = "txtMobile_";
-            this.txtMobile_.Size = new System.Drawing.Size(191, 29);
-            this.txtMobile_.TabIndex = 3;
-            this.txtMobile_.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePrompt;
-            this.txtMobile_.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMobile__KeyPress);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(379, 69);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(34, 22);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "شرح";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtDescription
-            // 
-            this.txtDescription.Location = new System.Drawing.Point(7, 96);
-            this.txtDescription.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtDescription.Size = new System.Drawing.Size(406, 29);
-            this.txtDescription.TabIndex = 7;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(791, 69);
+            this.label5.Location = new System.Drawing.Point(574, 69);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(57, 22);
             this.label5.TabIndex = 12;
@@ -266,7 +168,7 @@
             // 
             // txtPassWord_
             // 
-            this.txtPassWord_.Location = new System.Drawing.Point(657, 96);
+            this.txtPassWord_.Location = new System.Drawing.Point(440, 96);
             this.txtPassWord_.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtPassWord_.MaxLength = 100;
             this.txtPassWord_.Name = "txtPassWord_";
@@ -274,11 +176,12 @@
             this.txtPassWord_.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtPassWord_.Size = new System.Drawing.Size(191, 29);
             this.txtPassWord_.TabIndex = 5;
+            this.txtPassWord_.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPassWord__KeyPress);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(135, 8);
+            this.label4.Location = new System.Drawing.Point(783, 69);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(63, 22);
             this.label4.TabIndex = 8;
@@ -287,23 +190,13 @@
             // 
             // txtUserName_
             // 
-            this.txtUserName_.Location = new System.Drawing.Point(7, 35);
+            this.txtUserName_.Location = new System.Drawing.Point(655, 96);
             this.txtUserName_.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtUserName_.MaxLength = 10;
             this.txtUserName_.Name = "txtUserName_";
             this.txtUserName_.Size = new System.Drawing.Size(191, 29);
-            this.txtUserName_.TabIndex = 4;
+            this.txtUserName_.TabIndex = 4;                                                    
             this.txtUserName_.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUserName__KeyPress);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(334, 8);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 22);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "شماره موبایل";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label2
             // 
@@ -324,7 +217,7 @@
             this.txtLastName_.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtLastName_.Size = new System.Drawing.Size(191, 29);
             this.txtLastName_.TabIndex = 2;
-            this.txtLastName_.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFarsi__KeyPress);
+             
             // 
             // label1
             // 
@@ -344,8 +237,7 @@
             this.txtName_.Name = "txtName_";
             this.txtName_.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtName_.Size = new System.Drawing.Size(191, 29);
-            this.txtName_.TabIndex = 1;
-            this.txtName_.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFarsi__KeyPress);
+            this.txtName_.TabIndex = 1;                                                                      
             // 
             // pnlGrid
             // 
@@ -353,7 +245,7 @@
             this.pnlGrid.Controls.Add(this.label8);
             this.pnlGrid.Controls.Add(this.txtSearch);
             this.pnlGrid.Controls.Add(this.dgv);
-            this.pnlGrid.Location = new System.Drawing.Point(2, 295);
+            this.pnlGrid.Location = new System.Drawing.Point(2, 189);
             this.pnlGrid.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.pnlGrid.Name = "pnlGrid";
             this.pnlGrid.Size = new System.Drawing.Size(857, 264);
@@ -400,30 +292,14 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.panel1.Controls.Add(this.btnSelect);
             this.panel1.Controls.Add(this.btnChangeStatus);
             this.panel1.Controls.Add(this.btnNew);
             this.panel1.Controls.Add(this.btnSave);
             this.panel1.Controls.Add(this.btnDelete);
-            this.panel1.Location = new System.Drawing.Point(2, 248);
+            this.panel1.Location = new System.Drawing.Point(2, 142);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(857, 45);
             this.panel1.TabIndex = 22;
-            // 
-            // btnSelect
-            // 
-            this.btnSelect.Enabled = false;
-            this.btnSelect.Image = global::Hospital.Properties.Resources.check1;
-            this.btnSelect.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSelect.Location = new System.Drawing.Point(143, 5);
-            this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(88, 35);
-            this.btnSelect.TabIndex = 29;
-            this.btnSelect.Text = "انتخاب";
-            this.btnSelect.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSelect.UseVisualStyleBackColor = true;
-            this.btnSelect.Visible = false;
-            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
             // btnChangeStatus
             // 
@@ -497,7 +373,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(862, 562);
+            this.ClientSize = new System.Drawing.Size(862, 455);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlGrid);
             this.Controls.Add(this.pnlNewEdit);
@@ -511,7 +387,6 @@
             this.Load += new System.EventHandler(this.frmUsers_Load);
             this.pnlNewEdit.ResumeLayout(false);
             this.pnlNewEdit.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgBox)).EndInit();
             this.pnlGrid.ResumeLayout(false);
             this.pnlGrid.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
@@ -529,36 +404,25 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtLastName_;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtUserName_;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtPassWord_;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtDescription;
-        private System.Windows.Forms.MaskedTextBox txtMobile_;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtRePassWord_;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.Button btnSelectImage;
-        private System.Windows.Forms.OpenFileDialog ofdImage_;
-        private System.Windows.Forms.PictureBox imgBox;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button btnChangeStatus;
-        private System.Windows.Forms.Button btnSelect;
     }
 }

@@ -25,12 +25,11 @@ namespace Hospital.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<tblBakhsh> tblBakhshes { get; set; }
-        public virtual DbSet<tblBimar> tblBimars { get; set; }
-        public virtual DbSet<tblDoctor> tblDoctors { get; set; }
-        public virtual DbSet<tblOtagh> tblOtaghs { get; set; }
-        public virtual DbSet<tblPaziresh> tblPazireshes { get; set; }
-        public virtual DbSet<tblTasviyeHeasb> tblTasviyeHeasbs { get; set; }
         public virtual DbSet<tblUser> tblUsers { get; set; }
+        public virtual DbSet<tblBakhsh> tblBakhshes { get; set; }
+        public virtual DbSet<tblOtagh> tblOtaghs { get; set; }
+        public virtual DbSet<tblTasviyeHeasb> tblTasviyeHeasbs { get; set; }
+        public virtual DbSet<tblPaziresh> tblPazireshes { get; set; }
+        public virtual DbSet<tblPezeshk> tblPezeshks { get; set; }
     }
 }

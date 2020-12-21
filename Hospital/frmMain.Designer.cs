@@ -40,13 +40,10 @@
             this.btnPersonnelFunctionReport = new DevComponents.DotNetBar.ButtonItem();
             this.sideBarPanelItem3 = new DevComponents.DotNetBar.SideBarPanelItem();
             this.btnUsers = new DevComponents.DotNetBar.ButtonItem();
-            this.btnPersonnels = new DevComponents.DotNetBar.ButtonItem();
             this.btnCustomers = new DevComponents.DotNetBar.ButtonItem();
-            this.btnCarpets = new DevComponents.DotNetBar.ButtonItem();
-            this.btnCarpetPrice = new DevComponents.DotNetBar.ButtonItem();
-            this.btnNotes = new DevComponents.DotNetBar.ButtonItem();
+            this.btnPaziresh = new DevComponents.DotNetBar.ButtonItem();
+            this.btnTasviyeHeasb = new DevComponents.DotNetBar.ButtonItem();
             this.btnExit = new DevComponents.DotNetBar.ButtonItem();
-            this.sideBarPanelItem1 = new DevComponents.DotNetBar.SideBarPanelItem();
             this.btnPersonnelFunction = new DevComponents.DotNetBar.ButtonItem();
             this.btnChecks = new DevComponents.DotNetBar.ButtonItem();
             this.btnDocuments = new DevComponents.DotNetBar.ButtonItem();
@@ -89,8 +86,7 @@
             this.sideBar1.Location = new System.Drawing.Point(0, 0);
             this.sideBar1.Name = "sideBar1";
             this.sideBar1.Panels.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.sideBarPanelItem3,
-            this.sideBarPanelItem1});
+            this.sideBarPanelItem3});
             this.sideBar1.Size = new System.Drawing.Size(250, 564);
             this.sideBar1.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.sideBar1.TabIndex = 5;
@@ -165,13 +161,11 @@
             this.sideBarPanelItem3.Name = "sideBarPanelItem3";
             this.sideBarPanelItem3.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.btnUsers,
-            this.btnPersonnels,
             this.btnCustomers,
-            this.btnCarpets,
-            this.btnCarpetPrice,
-            this.btnNotes,
+            this.btnPaziresh,
+            this.btnTasviyeHeasb,
             this.btnExit});
-            this.sideBarPanelItem3.Text = "اطلاعات پایه";
+            this.sideBarPanelItem3.Text = "عملیات";
             // 
             // btnUsers
             // 
@@ -183,16 +177,6 @@
             this.btnUsers.Text = "مدیریت کاربران";
             this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
             // 
-            // btnPersonnels
-            // 
-            this.btnPersonnels.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnPersonnels.Image = global::Hospital.Properties.Resources.contacts;
-            this.btnPersonnels.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btnPersonnels.ImagePosition = DevComponents.DotNetBar.eImagePosition.Right;
-            this.btnPersonnels.Name = "btnPersonnels";
-            this.btnPersonnels.Text = "مدیریت کارمندان";
-            this.btnPersonnels.Click += new System.EventHandler(this.btnsettings_Click);
-            // 
             // btnCustomers
             // 
             this.btnCustomers.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
@@ -200,38 +184,28 @@
             this.btnCustomers.ImageFixedSize = new System.Drawing.Size(32, 32);
             this.btnCustomers.ImagePosition = DevComponents.DotNetBar.eImagePosition.Right;
             this.btnCustomers.Name = "btnCustomers";
-            this.btnCustomers.Text = "مدیریت مشتریان";
+            this.btnCustomers.Text = "اتاق ها";
             this.btnCustomers.Click += new System.EventHandler(this.btnCustomers_Click);
             // 
-            // btnCarpets
+            // btnPaziresh
             // 
-            this.btnCarpets.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnCarpets.Image = global::Hospital.Properties.Resources.swatches;
-            this.btnCarpets.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btnCarpets.ImagePosition = DevComponents.DotNetBar.eImagePosition.Right;
-            this.btnCarpets.Name = "btnCarpets";
-            this.btnCarpets.Text = "مدیریت فرش ها";
-            this.btnCarpets.Click += new System.EventHandler(this.btnCarpets_Click);
+            this.btnPaziresh.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnPaziresh.Image = global::Hospital.Properties.Resources.swatches;
+            this.btnPaziresh.ImageFixedSize = new System.Drawing.Size(32, 32);
+            this.btnPaziresh.ImagePosition = DevComponents.DotNetBar.eImagePosition.Right;
+            this.btnPaziresh.Name = "btnPaziresh";
+            this.btnPaziresh.Text = "پذیرش";
+            this.btnPaziresh.Click += new System.EventHandler(this.btnCarpets_Click);
             // 
-            // btnCarpetPrice
+            // btnTasviyeHeasb
             // 
-            this.btnCarpetPrice.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnCarpetPrice.Image = global::Hospital.Properties.Resources.money;
-            this.btnCarpetPrice.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btnCarpetPrice.ImagePosition = DevComponents.DotNetBar.eImagePosition.Right;
-            this.btnCarpetPrice.Name = "btnCarpetPrice";
-            this.btnCarpetPrice.Text = "مدیریت فی فرش";
-            this.btnCarpetPrice.Click += new System.EventHandler(this.btnCarpetPrice_Click);
-            // 
-            // btnNotes
-            // 
-            this.btnNotes.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnNotes.Image = global::Hospital.Properties.Resources.clipboard;
-            this.btnNotes.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btnNotes.ImagePosition = DevComponents.DotNetBar.eImagePosition.Right;
-            this.btnNotes.Name = "btnNotes";
-            this.btnNotes.Text = "یادداشت ها";
-            this.btnNotes.Click += new System.EventHandler(this.btnNotes_Click);
+            this.btnTasviyeHeasb.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnTasviyeHeasb.Image = global::Hospital.Properties.Resources.money;
+            this.btnTasviyeHeasb.ImageFixedSize = new System.Drawing.Size(32, 32);
+            this.btnTasviyeHeasb.ImagePosition = DevComponents.DotNetBar.eImagePosition.Right;
+            this.btnTasviyeHeasb.Name = "btnTasviyeHeasb";
+            this.btnTasviyeHeasb.Text = "تسویه حساب";
+            this.btnTasviyeHeasb.Click += new System.EventHandler(this.btnCarpetPrice_Click);
             // 
             // btnExit
             // 
@@ -242,22 +216,6 @@
             this.btnExit.Name = "btnExit";
             this.btnExit.Text = "خروج";
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // sideBarPanelItem1
-            // 
-            this.sideBarPanelItem1.BackgroundStyle.Font = new System.Drawing.Font("IRANSansWeb", 12F);
-            this.sideBarPanelItem1.FontBold = true;
-            this.sideBarPanelItem1.HeaderHotStyle.Font = new System.Drawing.Font("IRANSansWeb", 12F);
-            this.sideBarPanelItem1.HeaderMouseDownStyle.Font = new System.Drawing.Font("IRANSansWeb", 12F);
-            this.sideBarPanelItem1.HeaderSideHotStyle.Font = new System.Drawing.Font("IRANSansWeb", 12F);
-            this.sideBarPanelItem1.HeaderSideStyle.Font = new System.Drawing.Font("IRANSansWeb", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.sideBarPanelItem1.HeaderStyle.Font = new System.Drawing.Font("IRANSansWeb", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.sideBarPanelItem1.Name = "sideBarPanelItem1";
-            this.sideBarPanelItem1.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.btnPersonnelFunction,
-            this.btnChecks,
-            this.btnDocuments});
-            this.sideBarPanelItem1.Text = "عملیات";
             // 
             // btnPersonnelFunction
             // 
@@ -392,15 +350,12 @@
         #endregion
         private DevComponents.DotNetBar.PanelEx panelEx2;
         private DevComponents.DotNetBar.SideBar sideBar1;
-        private DevComponents.DotNetBar.SideBarPanelItem sideBarPanelItem1;
         private DevComponents.DotNetBar.ButtonItem btnPersonnelFunction;
         private DevComponents.DotNetBar.SideBarPanelItem sideBarPanelItem3;
         private DevComponents.DotNetBar.ButtonItem btnUsers;
-        private DevComponents.DotNetBar.ButtonItem btnPersonnels;
         private System.Windows.Forms.PictureBox imgBackGround;
         private DevComponents.DotNetBar.ButtonItem btnCustomers;
-        private DevComponents.DotNetBar.ButtonItem btnNotes;
-        private DevComponents.DotNetBar.ButtonItem btnCarpets;
+        private DevComponents.DotNetBar.ButtonItem btnPaziresh;
         private DevComponents.DotNetBar.ButtonItem btnExit;
         private DevComponents.DotNetBar.ButtonItem btnChecks;
         private DevComponents.DotNetBar.ButtonItem btnSettings;
@@ -414,7 +369,7 @@
         private DevComponents.DotNetBar.ButtonItem btnReportReciveCheck;
         private DevComponents.DotNetBar.ButtonItem btnReportSendCheck;
         private DevComponents.DotNetBar.ButtonItem btnReportFinancialState;
-        private DevComponents.DotNetBar.ButtonItem btnCarpetPrice;
+        private DevComponents.DotNetBar.ButtonItem btnTasviyeHeasb;
         private DevComponents.DotNetBar.ButtonItem btnReportDemands;
         private DevComponents.DotNetBar.ButtonItem btnPersonnelFunctionReport;
         private System.Windows.Forms.Label lblUserName;

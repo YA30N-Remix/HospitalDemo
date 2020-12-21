@@ -69,8 +69,8 @@ namespace Hospital
         {
             try
             {
-                Forms.BasicInformation.frmUsers frmUsers = new Forms.BasicInformation.frmUsers();
-                Forms.BasicInformation.frmUsers.LoadTypeID = 0;
+                Forms.frmUsers frmUsers = new Forms.frmUsers();
+                Forms.frmUsers.LoadTypeID = 0;
                 frmUsers.Show();
             }
             catch (Exception)

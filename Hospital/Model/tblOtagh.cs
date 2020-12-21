@@ -14,10 +14,18 @@ namespace Hospital.Model
     
     public partial class tblOtagh
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tblOtagh()
+        {
+            this.tblPazireshes = new HashSet<tblPaziresh>();
+        }
+    
         public int OtaghID { get; set; }
         public string CodeOtagh { get; set; }
         public int BakshID { get; set; }
     
         public virtual tblBakhsh tblBakhsh { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblPaziresh> tblPazireshes { get; set; }
     }
 }

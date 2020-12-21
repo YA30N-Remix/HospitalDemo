@@ -17,6 +17,7 @@ namespace Hospital.Model
         public int TasviyeHeasbID { get; set; }
         public int PazireshID { get; set; }
         public long Mablagh { get; set; }
+        public string TarikhTasviyeHeasb { get; set; }
     
         public virtual tblPaziresh tblPaziresh { get; set; }
     }

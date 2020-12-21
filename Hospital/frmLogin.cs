@@ -36,7 +36,7 @@ namespace Hospital
                 }
                 else
                 {
-                    CarpetCleaningEntities db = new CarpetCleaningEntities();
+                    HospitalEntities db = new HospitalEntities();
                       
                     string password = "";
                     LogContent = "UserName = " + txtUserName.Text;
@@ -45,8 +45,7 @@ namespace Hospital
 
                     if (Program.tblUserLogin != null)
                     {
-
-                        ClsTools.InsertLog(16, 1, LogContent, "tblUser", 1);
+                                  
                         frmLogin frmLogin = new frmLogin();
                         this.Hide();
                         //Application.Run(new frmMain());
@@ -62,8 +61,7 @@ namespace Hospital
                     else
                     {
                         FarsiMessagbox.Show("نام کاربری یا کلمه عبور اشتباه می باشد.", "ورود کاربر", FMessageBoxButtons.Ok, FMessageBoxIcon.Information);
-                                    
-                        ClsTools.InsertLog(17, 1, LogContent, "tblUser", 1);
+                                                                  
                         return;
                     }
                 }

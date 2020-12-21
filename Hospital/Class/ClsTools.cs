@@ -79,35 +79,7 @@ namespace Hospital.Class
 
             return Saat;
         }
-
-        public static void InsertLog(int LogTypeID, int UserID, string LogContent, string TableName, decimal TableKeyID)
-        {
-            try
-            {
-                CarpetCleaningEntities db = new CarpetCleaningEntities();
-                tblLog tblLog = new tblLog();
-
-                decimal MaxID = (from a in db.tblLogs
-                                 select a.LogID).DefaultIfEmpty().Max() + 1;
-
-                tblLog.LogID = MaxID;
-                tblLog.LogTypeID = LogTypeID;
-                tblLog.UserID = UserID;
-                tblLog.LogContent = LogContent;
-                tblLog.TableName = TableName;
-                tblLog.TableKeyID = 1;
-                tblLog.LogDate = ShamsiDate();
-                tblLog.LogTime = Time();
-
-                db.tblLogs.Add(tblLog);
-                db.SaveChanges();
-
-            }
-            catch (Exception)
-            {
-
-            }
-        }
+           
 
         public static void ClearContent(Control Content)
         {

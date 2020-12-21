@@ -15,15 +15,14 @@ using Hospital.Class;
 using Hospital.Model;
 using mgh;
 
-namespace Hospital.Forms.BasicInformation
+namespace Hospital.Forms
 {
-    public partial class frmNotes : Form
-    {
-        string LogContent = "";
+    public partial class frmPaziresh : Form
+    {                            
         int SaveType = 1;
-        public static tblNote tblNote = new tblNote();          
         public static int LoadTypeID = 0;
-        public frmNotes()
+        public static tblPaziresh tblPaziresh = new tblPaziresh();    
+        public frmPaziresh()
         {
             InitializeComponent();
         }
@@ -32,28 +31,39 @@ namespace Hospital.Forms.BasicInformation
         {
             try
             {
-                CarpetCleaningEntities db = new CarpetCleaningEntities();
-                var Query = from a in db.tblNotes
-                            select new { a.NoteID, a.Title, a.StartDate, a.EndDate, a.Note };
+                HospitalEntities db = new HospitalEntities();
+                var Query = from a in db.tblPazireshes
+                            join b in db.tblPezeshks
+                            on a.PezeshkID equals b.PezeshkID
+                            join c in db.tblOtaghs
+                            on a.OtaghID equals c.OtaghID
+                            join d in db.tblBakhshes
+                            on c.OtaghID equals d.BakshID
+                            select new { a.PazireshID, NameBimar=  a.NameBimar + " " + a.LastNameBimar, a.TarikhPaziresh, CodeOtagh= d.BakhshName + " - " + c.CodeOtagh, DoctorName = b.Name + " " +b.LastName };
 
                 if (txtSearch.Text.Trim().Length != 0)
                 {
-                    Query = Query.Where(a => a.NoteID.ToString().Contains(txtSearch.Text) || a.Title.Contains(txtSearch.Text) || a.StartDate.Contains(txtSearch.Text) || a.EndDate.Contains(txtSearch.Text));
+                    Query = Query.Where(a => a.PazireshID.ToString().Contains(txtSearch.Text) || 
+                    a.NameBimar.ToString().Contains(txtSearch.Text) ||       
+                    a.TarikhPaziresh.ToString().Contains(txtSearch.Text) || 
+                    a.CodeOtagh.ToString().Contains(txtSearch.Text)|| 
+                    a.DoctorName.ToString().Contains(txtSearch.Text));
                 }
 
+                if (LoadTypeID == 1) Query = Query.e(a => a.ActiveName == "فعال");
+
                 dgv.DataSource = Query.ToList();
-
-                dgv.Columns[0].HeaderText = "کد یادداشت";
-                dgv.Columns[0].Width = 100;
-                dgv.Columns[1].HeaderText = "عنوان";
-                dgv.Columns[1].Width = 120;
-                dgv.Columns[2].HeaderText = "از تاریخ";
+                          
+                dgv.Columns[0].HeaderText = "کد پذیرش";
+                dgv.Columns[0].Width = 120;
+                dgv.Columns[1].HeaderText = "نام بیمار";
+                dgv.Columns[1].Width = 140;
+                dgv.Columns[2].HeaderText = "تاریخ پذیرش";
                 dgv.Columns[2].Width = 120;
-                dgv.Columns[3].HeaderText = "تا تاریخ";
+                dgv.Columns[3].HeaderText = "اتاق";
                 dgv.Columns[3].Width = 120;
-                dgv.Columns[4].HeaderText = "یادداشت";
-                dgv.Columns[4].Width = 200;
-
+                dgv.Columns[4].HeaderText = "نام پزشک";
+                dgv.Columns[3].Width = 120;
             }
             catch (Exception ex)
             {
@@ -65,18 +75,34 @@ namespace Hospital.Forms.BasicInformation
         {
             try
             {
-                CarpetCleaningEntities db = new CarpetCleaningEntities();
-                 tblNote = db.tblNotes.Find(tblNote.NoteID);
-                if (tblNote == null)
+                HospitalEntities db = new HospitalEntities();
+    
+                var Query = from a in db.tblPazireshes          
+                            join b in db.tblOtaghs
+                            on a.OtaghID equals b.OtaghID     
+                            where a.PazireshID == tblPaziresh.PazireshID   
+                            select new { a, b.BakshID};
+
+                if (Query == null)
                 {
                     FarsiMessagbox.Show(ClsMessage.ErrNotFound, "خطا", FMessageBoxButtons.Ok, FMessageBoxIcon.Error);
                     return;
                 }
-                txtTitle_.Text = tblNote.Title;
-                txtStartDate.Text = tblNote.StartDate;
-                txtEndDate.Text = tblNote.EndDate;
-                txtNote.Text = tblNote.Note;
-                txtDescription.Text = tblNote.Description;
+                tblPaziresh.NameBimar = Query.ToList().ElementAt(0).a.NameBimar;
+                tblPaziresh.LastNameBimar = Query.ToList().ElementAt(0).a.LastNameBimar;
+                tblPaziresh.CodeMelliBimar = Query.ToList().ElementAt(0).a.CodeMelliBimar;
+                tblPaziresh.CodeBimeBimar = Query.ToList().ElementAt(0).a.CodeBimeBimar;   
+                tblPaziresh.PezeshkID = Query.ToList().ElementAt(0).a.PezeshkID;
+                tblPaziresh.OtaghID = Query.ToList().ElementAt(0).a.OtaghID;
+
+                txtName_.Text = tblPaziresh.NameBimar;
+                txtLastName_.Text = tblPaziresh.LastNameBimar;
+                txtCodeMelli_.Text = tblPaziresh.CodeMelliBimar.ToString();
+                txtCodeBime.Text = tblPaziresh.CodeBimeBimar;
+                cmbPezeshk_.SelectedValue = tblPaziresh.PezeshkID;
+                cmbBaksh_.SelectedValue = Query.ToList().ElementAt(0).BakshID;
+
+                cmbOtagh_.SelectedValue = tblPaziresh.OtaghID;
             }
             catch (Exception ex)
             {
@@ -88,28 +114,22 @@ namespace Hospital.Forms.BasicInformation
         {
             try
             {
-                CarpetCleaningEntities db = new CarpetCleaningEntities();
-                tblNote tblNote = new tblNote();
+                HospitalEntities db = new HospitalEntities();
+                tblPaziresh tblPaziresh = new tblPaziresh();
 
-                decimal MaxID = (from a in db.tblNotes
-                                 select a.NoteID).DefaultIfEmpty().Max() + 1;
-                                
-                tblNote.NoteID = MaxID;
-                tblNote.Title = txtTitle_.Text;
-                tblNote.StartDate = txtStartDate.MaskedTextProvider.ToDisplayString();
-                tblNote.EndDate = txtEndDate.MaskedTextProvider.ToDisplayString();
-                tblNote.Note = txtNote.Text;
-                tblNote.Description = txtDescription.Text;
-                tblNote.RegisterDate = ClsTools.ShamsiDate();
 
-                db.tblNotes.Add(tblNote);
+                tblPaziresh.NameBimar = txtName_.Text;
+                tblPaziresh.LastNameBimar = txtLastName_.Text;
+                tblPaziresh.CodeMelliBimar = txtCodeMelli_.Text;
+                tblPaziresh.CodeBimeBimar = txtCodeBime.Text;
+                tblPaziresh.PezeshkID = (int)cmbPezeshk_.SelectedValue;
+                tblPaziresh.OtaghID = (int)cmbOtagh_.SelectedValue;        
+                                                             
+                tblPaziresh.TarikhPaziresh = ClsTools.ShamsiDate();
+
+                db.tblPazireshes.Add(tblPaziresh);
                 db.SaveChanges();
-
-                LogContent = "Title = " + tblNote.Title + " | " + "StartDate = " + tblNote.StartDate + " | " + "Note = " + tblNote.Note + " | " +
-                      "EndDate = " + tblNote.EndDate + " | " + "Description = " + tblNote.Description + " | ";
-
-                ClsTools.InsertLog(13, Program.tblUserLogin.UserID, LogContent, "tblNote", tblNote.NoteID);
-
+                                    
                 New();
             }
             catch (DbEntityValidationException ex)
@@ -134,33 +154,28 @@ namespace Hospital.Forms.BasicInformation
         {
             try
             {
-                CarpetCleaningEntities db = new CarpetCleaningEntities();
-                 tblNote = db.tblNotes.Find(tblNote.NoteID);
+                HospitalEntities db = new HospitalEntities();
+                tblPaziresh = db.tblPazireshes.Find(tblPaziresh.PazireshID);
 
-                if (tblNote == null)
+                if (tblPaziresh == null)
                 {
                     FarsiMessagbox.Show(ClsMessage.ErrNotFound, "خطا", FMessageBoxButtons.Ok, FMessageBoxIcon.Error);
                     return;
                 }
-
-                tblNote.Title = txtTitle_.Text;
-                tblNote.StartDate = txtStartDate.MaskedTextProvider.ToDisplayString();
-                tblNote.EndDate = txtEndDate.MaskedTextProvider.ToDisplayString();
-                tblNote.Note = txtNote.Text;
-                tblNote.Description = txtDescription.Text;
-                tblNote.RegisterDate = ClsTools.ShamsiDate();
-
-                db.Entry(tblNote).State = EntityState.Modified;
-                //db.Entry(tblPersonnel).Property(x => x).IsModified = true;         
-                db.Entry(tblNote).Property(x => x.RegisterDate).IsModified = false;
+                         
+                tblPaziresh.NameBimar = txtName_.Text;
+                tblPaziresh.LastNameBimar = txtLastName_.Text;
+                tblPaziresh.CodeMelliBimar = txtCodeMelli_.Text;
+                tblPaziresh.CodeBimeBimar = txtCodeBime.Text;
+                tblPaziresh.PezeshkID = (int)cmbPezeshk_.SelectedValue;
+                tblPaziresh.OtaghID = (int)cmbOtagh_.SelectedValue;
+                                   
+                db.Entry(tblPaziresh).State = EntityState.Modified;
+                //db.Entry(tblPersonnel).Property(x => x).IsModified = true;        
+                db.Entry(tblPaziresh).Property(x => x.TarikhPaziresh).IsModified = false;
 
                 db.SaveChanges();
-
-                LogContent = "Title = " + tblNote.Title + " | " + "StartDate = " + tblNote.StartDate + " | " + "Note = " + tblNote.Note + " | " +
-                     "EndDate = " + tblNote.EndDate + " | " + "Description = " + tblNote.Description + " | ";
-
-                ClsTools.InsertLog(14, Program.tblUserLogin.UserID, LogContent, "tblNote", tblNote.NoteID);
-
+                         
                 New();
             }
             catch (DbEntityValidationException ex)
@@ -184,19 +199,12 @@ namespace Hospital.Forms.BasicInformation
         {
             try
             {
-                CarpetCleaningEntities db = new CarpetCleaningEntities();
-                tblNote = db.tblNotes.Find(tblNote.NoteID);
-
-                LogContent = "Title = " + tblNote.Title + " | " + "StartDate = " + tblNote.StartDate + " | " + "Note = " + tblNote.Note + " | " +
-                    "EndDate = " + tblNote.EndDate + " | " + "Description = " + tblNote.Description + " | ";
-
-                db.tblNotes.Remove(tblNote);
+                HospitalEntities db = new HospitalEntities();
+                tblPaziresh = db.tblPazireshes.Find(tblPaziresh.PazireshID);
+                   
+                db.tblPazireshes.Remove(tblPaziresh);
                 db.SaveChanges();
-
-
-
-                ClsTools.InsertLog(15, Program.tblUserLogin.UserID, LogContent, "tblNote", tblNote.NoteID);
-
+                       
                 New();
             }
             catch (DbUpdateException ex)
@@ -211,15 +219,13 @@ namespace Hospital.Forms.BasicInformation
 
         void New()
         {
-            tblNote = new tblNote();
-              SaveType = 1;
+            tblPaziresh = new tblPaziresh();
+            SaveType = 1;
             BindGrid();
             ClsTools.ClearContent(pnlNewEdit);
-            btnDelete.Enabled = false;
-            btnSelect.Enabled = false;
+            btnDelete.Enabled = false;   
         }
-
-        private void frmNotes_Load(object sender, EventArgs e)
+        private void frmCarpets_Load(object sender, EventArgs e)
         {
             try
             {
@@ -288,7 +294,7 @@ namespace Hospital.Forms.BasicInformation
         {
             try
             {
-                tblNote. NoteID = Convert.ToDecimal(dgv.Rows[e.RowIndex].Cells[0].Value.ToString());
+                tblPaziresh.PazireshID = Convert.ToInt32(dgv.Rows[e.RowIndex].Cells[0].Value.ToString());
                 BindRow();
                 SaveType = 2;
                 btnDelete.Enabled = true;
@@ -299,52 +305,25 @@ namespace Hospital.Forms.BasicInformation
             }
         }
 
-        private void txtMobile__KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!System.Text.RegularExpressions.Regex.IsMatch(e.KeyChar.ToString(), @"^\d\b\s$"))
-            {
-                // Stop the character from being entered into the control since it is illegal.           Regex.IsMatch(input, @"^[a-zA-Z0-9]+$");
-                e.Handled = true;
-            }
-        }
-
-        private void txtUserName__KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!System.Text.RegularExpressions.Regex.IsMatch(e.KeyChar.ToString(), @"^[A-Za-z0-9\b]"))
-            {
-                // Stop the character from being entered into the control since it is illegal.
-                e.Handled = true;
-            }
-        }
-
-        private void txtName__KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!System.Text.RegularExpressions.Regex.IsMatch(e.KeyChar.ToString(), @"^[آ-ی\b\s]$"))
-            {
-                // Stop the character from being entered into the control since it is illegal.
-                e.Handled = true;
-            }
-        }
-
-        private void txtLastName__KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!System.Text.RegularExpressions.Regex.IsMatch(e.KeyChar.ToString(), @"^[آ-ی\b\s]$"))
-            {
-                // Stop the character from being entered into the control since it is illegal.
-                e.Handled = true;
-            }
-        }
-
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            if (tblNote.NoteID == 0)
+            try
             {
-                FarsiMessagbox.Show(ClsMessage.Error + "\n" + "رکوردی انتخاب نشده است", "خطا", FMessageBoxButtons.Ok, FMessageBoxIcon.Error);
-                return;
+                if (tblPaziresh.PazireshID == 0)
+                {
+                    FarsiMessagbox.Show(ClsMessage.Error + "\n" + "رکوردی انتخاب نشده است", "خطا", FMessageBoxButtons.Ok, FMessageBoxIcon.Error);
+                    return;
+                }
+                SaveType = 1;
+                LoadTypeID = 0;
+                this.Close();
             }
-            SaveType = 1;
-            LoadTypeID = 0;
-            this.Close();
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
+           
     }
 }

@@ -16,11 +16,15 @@ namespace Hospital.Model
     {
         public int PazireshID { get; set; }
         public string TarikhPaziresh { get; set; }
-        public int BimarID { get; set; }
-        public int DoctorID { get; set; }
+        public int PezeshkID { get; set; }
+        public int OtaghID { get; set; }
+        public string NameBimar { get; set; }
+        public string LastNameBimar { get; set; }
+        public string CodeMelliBimar { get; set; }
+        public string CodeBimeBimar { get; set; }
     
-        public virtual tblBimar tblBimar { get; set; }
-        public virtual tblDoctor tblDoctor { get; set; }
+        public virtual tblOtagh tblOtagh { get; set; }
+        public virtual tblPezeshk tblPezeshk { get; set; }
         public virtual tblTasviyeHeasb tblTasviyeHeasb { get; set; }
     }
 }

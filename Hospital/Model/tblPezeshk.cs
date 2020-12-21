@@ -12,19 +12,17 @@ namespace Hospital.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class tblBimar
+    public partial class tblPezeshk
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tblBimar()
+        public tblPezeshk()
         {
             this.tblPazireshes = new HashSet<tblPaziresh>();
         }
     
-        public int BimarID { get; set; }
+        public int PezeshkID { get; set; }
         public string Name { get; set; }
         public string LastName { get; set; }
-        public string CodeMelli { get; set; }
-        public string CodeBime { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblPaziresh> tblPazireshes { get; set; }

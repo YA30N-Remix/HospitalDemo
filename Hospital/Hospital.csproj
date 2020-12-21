@@ -70,71 +70,29 @@
   <ItemGroup>
     <Compile Include="Class\ClsMessage.cs" />
     <Compile Include="Class\ClsTools.cs" />
-    <Compile Include="Forms\BasicInformation\frmCarpetPrice.cs">
+    <Compile Include="Forms\frmOtagh.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\BasicInformation\frmCarpetPrice.Designer.cs">
-      <DependentUpon>frmCarpetPrice.cs</DependentUpon>
+    <Compile Include="Forms\frmOtagh.Designer.cs">
+      <DependentUpon>frmOtagh.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\BasicInformation\frmCustomers.cs">
+    <Compile Include="Forms\frmPaziresh.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\BasicInformation\frmCustomers.Designer.cs">
-      <DependentUpon>frmCustomers.cs</DependentUpon>
+    <Compile Include="Forms\frmPaziresh.Designer.cs">
+      <DependentUpon>frmPaziresh.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\BasicInformation\frmPersonnels.cs">
+    <Compile Include="Forms\frmUsers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\BasicInformation\frmPersonnels.Designer.cs">
-      <DependentUpon>frmPersonnels.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\BasicInformation\frmNotes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\BasicInformation\frmNotes.Designer.cs">
-      <DependentUpon>frmNotes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\BasicInformation\frmCarpets.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\BasicInformation\frmCarpets.Designer.cs">
-      <DependentUpon>frmCarpets.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\BasicInformation\frmUsers.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\BasicInformation\frmUsers.Designer.cs">
+    <Compile Include="Forms\frmUsers.Designer.cs">
       <DependentUpon>frmUsers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Operations\frmCostumersBuyList.cs">
+    <Compile Include="Forms\frmTasviyeHeasb.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Operations\frmCostumersBuyList.Designer.cs">
-      <DependentUpon>frmCostumersBuyList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Operations\frmCostumerBuy.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Operations\frmCostumerBuy.Designer.cs">
-      <DependentUpon>frmCostumerBuy.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Operations\frmChecks.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Operations\frmChecks.Designer.cs">
-      <DependentUpon>frmChecks.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Operations\frmDocuments.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Operations\frmDocuments.Designer.cs">
-      <DependentUpon>frmDocuments.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Operations\frmPersonnelFunction.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Operations\frmPersonnelFunction.Designer.cs">
-      <DependentUpon>frmPersonnelFunction.cs</DependentUpon>
+    <Compile Include="Forms\frmTasviyeHeasb.Designer.cs">
+      <DependentUpon>frmTasviyeHeasb.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -166,16 +124,13 @@
     <Compile Include="Model\tblBakhsh.cs">
       <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\tblBimar.cs">
-      <DependentUpon>Hospital.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\tblDoctor.cs">
-      <DependentUpon>Hospital.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model\tblOtagh.cs">
       <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\tblPaziresh.cs">
+      <DependentUpon>Hospital.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tblPezeshk.cs">
       <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\tblTasviyeHeasb.cs">
@@ -186,38 +141,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\BasicInformation\frmCarpetPrice.resx">
-      <DependentUpon>frmCarpetPrice.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\frmOtagh.resx">
+      <DependentUpon>frmOtagh.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\BasicInformation\frmCustomers.resx">
-      <DependentUpon>frmCustomers.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\frmPaziresh.resx">
+      <DependentUpon>frmPaziresh.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\BasicInformation\frmPersonnels.resx">
-      <DependentUpon>frmPersonnels.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\BasicInformation\frmNotes.resx">
-      <DependentUpon>frmNotes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\BasicInformation\frmCarpets.resx">
-      <DependentUpon>frmCarpets.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\BasicInformation\frmUsers.resx">
+    <EmbeddedResource Include="Forms\frmUsers.resx">
       <DependentUpon>frmUsers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Operations\frmCostumersBuyList.resx">
-      <DependentUpon>frmCostumersBuyList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Operations\frmCostumerBuy.resx">
-      <DependentUpon>frmCostumerBuy.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Operations\frmChecks.resx">
-      <DependentUpon>frmChecks.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Operations\frmDocuments.resx">
-      <DependentUpon>frmDocuments.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Operations\frmPersonnelFunction.resx">
-      <DependentUpon>frmPersonnelFunction.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\frmTasviyeHeasb.resx">
+      <DependentUpon>frmTasviyeHeasb.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>

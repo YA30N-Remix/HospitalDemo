@@ -15,16 +15,15 @@ using Hospital.Class;
 using Hospital.Model;
 using mgh;
 
-namespace Hospital.Forms.Operations
+namespace Hospital.Forms
 {
-    public partial class frmCostumerBuy : Form
+    public partial class frmTasviyeHeasb : Form
     {
-        string LogContent = "";
-        int SaveType = 1;
-        public static tblCustomerBuy tblCustomerBuy = new tblCustomerBuy();
-        public static short LoadTypeID = 0;
-        public static short FactorTypeID = 0;
-        public frmCostumerBuy()
+     
+        int SaveType = 1;      
+        public static tblTasviyeHeasb tblTasviyeHeasb = new tblTasviyeHeasb();
+                       
+        public frmTasviyeHeasb()
         {
             InitializeComponent();
         }
@@ -33,25 +32,34 @@ namespace Hospital.Forms.Operations
         {
             try
             {
-                CarpetCleaningEntities db = new CarpetCleaningEntities();
-                var Query = from a in db.tblCustomerBuys  
-                            join b in db.tblCustomers on a.CustomerID equals b.CustomerID
-                            select new { a.CustomerBuyID, CustomerName = b.Name + " " + b.LastName };
+                HospitalEntities db = new HospitalEntities();
+                var Query = from a in db.tblTasviyeHeasbs
+                            join b in db.tblPazireshes on a.PazireshID equals b.PazireshID      
+                            select new
+                            {
+                                a.TasviyeHeasbID,
+                                NameBimar = b.NameBimar + " " + b.LastNameBimar,   
+                                a.Mablagh,
+                                a.TarikhTasviyeHeasb  
+                            };
 
                 if (txtSearch.Text.Trim().Length != 0)
                 {
-                    Query = Query.Where(a => a.CustomerBuyID.ToString().Contains(txtSearch.Text) || a.CustomerName.ToString().Contains(txtSearch.Text));
+                    Query = Query.Where(a => a.TasviyeHeasbID.ToString().Contains(txtSearch.Text) || a.NameBimar.ToString().Contains(txtSearch.Text) ||
+                    a.Mablagh.ToString().Contains(txtSearch.Text) || a.TarikhTasviyeHeasb.ToString().Contains(txtSearch.Text));
                 }
 
                 dgv.DataSource = Query.ToList();
 
-                dgv.Columns["factorlist"].DisplayIndex = 2;
-                //dgv.Columns["Print"].DisplayIndex = 4;
-                //dgv.Columns["PringA4"].DisplayIndex = 4;
-                dgv.Columns[1].HeaderText = "کد لیست";
-                dgv.Columns[1].Width = 100;
-                dgv.Columns[2].HeaderText = "نام مشتری";
-                dgv.Columns[2].Width = 140;
+                dgv.Columns[0].HeaderText = "کد تسویه حساب";
+                dgv.Columns[0].Width = 80;
+                dgv.Columns[1].HeaderText = "نام بیمار";
+                dgv.Columns[1].Width = 80;
+                dgv.Columns[2].HeaderText = "مبلغ";
+                dgv.Columns[2].Width = 120;
+                dgv.Columns[3].HeaderText = "تاریخ تسویه حساب";
+                dgv.Columns[3].Width = 100;      
+
             }
             catch (Exception ex)
             {
@@ -63,24 +71,24 @@ namespace Hospital.Forms.Operations
         {
             try
             {
-                CarpetCleaningEntities db = new CarpetCleaningEntities();
-                tblCustomerBuy = db.tblCustomerBuys.Find(tblCustomerBuy.CustomerBuyID);
-                if (tblCustomerBuy == null)
+                HospitalEntities db = new HospitalEntities();
+                 tblTasviyeHeasb = db.tblTasviyeHeasbs.Find(tblTasviyeHeasb.TasviyeHeasbID);
+                if (tblTasviyeHeasb == null)
                 {
                     FarsiMessagbox.Show(ClsMessage.ErrNotFound, "خطا", FMessageBoxButtons.Ok, FMessageBoxIcon.Error);
                     return;
                 }
 
-                BasicInformation.frmCustomers.tblCustomer.CustomerID = tblCustomerBuy.CustomerBuyID;
-              
-                var QueryCustomer = (from a in db.tblCustomers
-                                     where a.CustomerID == BasicInformation.frmCustomers.tblCustomer.CustomerID
-                                     select new { name = a.Name + " " + a.LastName }).ToList();
+                frmPaziresh.tblPaziresh.PazireshID = tblTasviyeHeasb.PazireshID;
+                      
+                var QueryBimar = (from a in db.tblPazireshes
+                                     where a.PazireshID == frmPaziresh.tblPaziresh.PazireshID
+                                     select new { name = a.NameBimar + " " + a.LastNameBimar }).ToList();
 
-                txtCustomerName.Text = QueryCustomer.ElementAt(0).name;
-                                                    
-                txtDescription.Text = tblCustomerBuy.Description;
-
+                txtBimarName.Text = QueryBimar.ElementAt(0).name;       
+                txtTarikhTasviyeHeasb_.Text = tblTasviyeHeasb.TarikhTasviyeHeasb;
+                txtMablagh_.Text = tblTasviyeHeasb.Mablagh.ToString();     
+                        
             }
             catch (Exception ex)
             {
@@ -92,39 +100,19 @@ namespace Hospital.Forms.Operations
         {
             try
             {
-                CarpetCleaningEntities db = new CarpetCleaningEntities();
-                tblCustomerBuy = new tblCustomerBuy();
-
-                var CountCustumerRec = (from a in db.tblCustomerBuys
-                             where a.CustomerID == BasicInformation.frmCustomers.tblCustomer.CustomerID
-                             select a.CustomerBuyID).Count();
-
-                if (CountCustumerRec !=0)
-                {
-                    FarsiMessagbox.Show(ClsMessage.Error + "\n" + "برای این مشتری قبلا رکوردی ایجاد شده است", "خطا", FMessageBoxButtons.Ok, FMessageBoxIcon.Error);
-                    return;
-                }
-
-
-                int MaxID = (from a in db.tblCustomerBuys
-                             select a.CustomerBuyID).DefaultIfEmpty().Max() + 1;
-
-
-                tblCustomerBuy.CustomerBuyID = MaxID;
-                tblCustomerBuy.CustomerID = BasicInformation.frmCustomers.tblCustomer.CustomerID;
-
-                tblCustomerBuy.Description = txtDescription.Text;
-                tblCustomerBuy.RegisterDate = ClsTools.ShamsiDate();
-
-                db.tblCustomerBuys.Add(tblCustomerBuy);
+                HospitalEntities db = new HospitalEntities();
+                tblTasviyeHeasb tblTasviyeHeasb = new tblTasviyeHeasb();
+                                                
+                tblTasviyeHeasb.PazireshID = frmPaziresh.tblPaziresh.PazireshID;
+                 
+                tblTasviyeHeasb.TarikhTasviyeHeasb = txtTarikhTasviyeHeasb_.MaskedTextProvider.ToDisplayString();
+                    
+                tblTasviyeHeasb.Mablagh = Convert.ToInt64(txtMablagh_.Text) ;
+      
+                db.tblTasviyeHeasbs.Add(tblTasviyeHeasb);
 
                 db.SaveChanges();
-
-                LogContent = "CustomerBuyID = " + tblCustomerBuy.CustomerBuyID + " | " + "CustomerID = " + tblCustomerBuy.CustomerID + " | " +  
-                     "Description = " + tblCustomerBuy.Description + " | " + "RegisterDate = " + tblCustomerBuy.RegisterDate + " | ";
-
-                ClsTools.InsertLog(44, Program.tblUserLogin.UserID, LogContent, "tblCustomerBuy", tblCustomerBuy.CustomerID);
-
+             
                 New();
             }
             catch (DbEntityValidationException ex)
@@ -149,31 +137,25 @@ namespace Hospital.Forms.Operations
         {
             try
             {
-                CarpetCleaningEntities db = new CarpetCleaningEntities();
-                tblCustomerBuy = db.tblCustomerBuys.Find(tblCustomerBuy.CustomerBuyID);
+                HospitalEntities db = new HospitalEntities();
+                tblTasviyeHeasb = db.tblTasviyeHeasbs.Find(tblTasviyeHeasb.TasviyeHeasbID);
 
-                if (tblCustomerBuy == null)
+                if (tblTasviyeHeasb == null)
                 {
                     FarsiMessagbox.Show(ClsMessage.ErrNotFound, "خطا", FMessageBoxButtons.Ok, FMessageBoxIcon.Error);
                     return;
                 }
 
-                tblCustomerBuy.CustomerID = BasicInformation.frmCustomers.tblCustomer.CustomerID;
+                tblTasviyeHeasb.PazireshID = frmPaziresh.tblPaziresh.PazireshID;
+                tblTasviyeHeasb.TarikhTasviyeHeasb = txtTarikhTasviyeHeasb_.MaskedTextProvider.ToDisplayString();
 
-
-                tblCustomerBuy.Description = txtDescription.Text;
-
-                db.Entry(tblCustomerBuy).State = EntityState.Modified;
-                //db.Entry(tblPersonnel).Property(x => x).IsModified = true;        
-                db.Entry(tblCustomerBuy).Property(x => x.RegisterDate).IsModified = false;
+                tblTasviyeHeasb.Mablagh = Convert.ToInt64(txtMablagh_.Text);
+                                                                
+                db.Entry(tblTasviyeHeasb).State = EntityState.Modified;
+                //db.Entry(tblPersonnel).Property(x => x).IsModified = true;            
 
                 db.SaveChanges();
-
-                LogContent = "CustomerBuyID = " + tblCustomerBuy.CustomerBuyID + " | " + "CustomerID = " + tblCustomerBuy.CustomerID + " | " +
-                     "Description = " + tblCustomerBuy.Description + " | " + "RegisterDate = " + tblCustomerBuy.RegisterDate + " | ";
-
-                ClsTools.InsertLog(45, Program.tblUserLogin.UserID, LogContent, "tblCustomerBuy", tblCustomerBuy.CustomerBuyID);
-
+                  
                 New();
             }
             catch (DbEntityValidationException ex)
@@ -197,7 +179,7 @@ namespace Hospital.Forms.Operations
         //{
         //    try
         //    {
-        //        CarpetCleaningEntities db = new CarpetCleaningEntities();
+        //        HospitalEntities db = new HospitalEntities();
         //        tblPersonnelFunction tblPersonnelFunction = db.tblPersonnelFunctions.Find(PersonnelID);
 
         //        if (tblPersonnelFunction == null)
@@ -243,31 +225,12 @@ namespace Hospital.Forms.Operations
         {
             try
             {
-                CarpetCleaningEntities db = new CarpetCleaningEntities();
-                tblCustomerBuy = db.tblCustomerBuys.Find(tblCustomerBuy.CustomerBuyID);
-
-                List<tblCustomerBuyList> tblCustomerBuyLists = db.tblCustomerBuyLists.Where(x => x.CustomerBuyID == tblCustomerBuy.CustomerBuyID).ToList();
-
-                LogContent = "CustomerBuyID = " + tblCustomerBuy.CustomerBuyID + " | " + "CustomerID = " + tblCustomerBuy.CustomerID + " | " +
-                       "Description = " + tblCustomerBuy.Description + " | " + "RegisterDate = " + tblCustomerBuy.RegisterDate + " | ";
-
-                foreach (var item in tblCustomerBuyLists)
-                {
-                    tblCustomerBuyList tblCustomerBuyList = db.tblCustomerBuyLists.Find(item.CustomerBuyID);
-                    tblCustomerBuyList.FactorStatus = 0;
-
-                    db.Entry(tblCustomerBuyList).State = EntityState.Modified;
-                    db.Entry(tblCustomerBuyList).Property(x => x.FactorStatus).IsModified = true;
-                }
-
-                db.tblCustomerBuys.Remove(tblCustomerBuy);
-                db.tblCustomerBuyLists.RemoveRange(tblCustomerBuyLists);
-
+                HospitalEntities db = new HospitalEntities();
+                 tblTasviyeHeasb = db.tblTasviyeHeasbs.Find(tblTasviyeHeasb.TasviyeHeasbID);
+                 
+                db.tblTasviyeHeasbs.Remove(tblTasviyeHeasb);
                 db.SaveChanges();
-
-
-                ClsTools.InsertLog(46, Program.tblUserLogin.UserID, LogContent, "tblCustomerBuys", tblCustomerBuy.CustomerBuyID);
-
+                
                 New();
             }
             catch (DbUpdateException ex)
@@ -280,25 +243,21 @@ namespace Hospital.Forms.Operations
             }
         }
 
-     
         void New()
-        {
-            tblCustomerBuy = new tblCustomerBuy();
+        {        
             SaveType = 1;
             BindGrid();
-            BasicInformation.frmCustomers.tblCustomer.CustomerID = 0;
-            ClsTools.ClearContent(pnlNewEdit);            
-            btnDelete.Enabled = false;
-            btnSelect.Enabled = false;
-        }
 
-        private void frmCostumerBuy_Load(object sender, EventArgs e)
+            frmPaziresh.tblPaziresh = new tblPaziresh();            
+            ClsTools.ClearContent(pnlNewEdit);
+            btnDelete.Enabled = false;
+            txtTarikhTasviyeHeasb_.Text = ClsTools.ShamsiDate();
+        }
+        private void frmDocuments_Load(object sender, EventArgs e)
         {
             try
             {
                 New();
-
-                if (LoadTypeID == 1) btnSelect.Visible = true;
             }
             catch (Exception ex)
             {
@@ -310,11 +269,12 @@ namespace Hospital.Forms.Operations
         {
             try
             {
-                if (ClsTools.CheckValidation(pnlNewEdit) == false || BasicInformation.frmCustomers.tblCustomer.CustomerID == 0)
+                if (ClsTools.CheckValidation(pnlNewEdit) == false || frmPaziresh.tblPaziresh.PazireshID == 0 )
                 {
                     FarsiMessagbox.Show(ClsMessage.ErrNotRegEmptyValue, "خطا", FMessageBoxButtons.Ok, FMessageBoxIcon.Error);
                     return;
                 }
+
 
                 if (SaveType == 1)
                 {
@@ -324,8 +284,6 @@ namespace Hospital.Forms.Operations
                 {
                     UpdateRow();
                 }
-
-
             }
             catch (Exception ex)
             {
@@ -362,18 +320,10 @@ namespace Hospital.Forms.Operations
         {
             try
             {
-                tblCustomerBuy.CustomerBuyID = Convert.ToInt32(dgv.Rows[e.RowIndex].Cells[1].Value.ToString());
+                tblTasviyeHeasb.TasviyeHeasbID = (int) dgv.Rows[e.RowIndex].Cells[0].Value ;
                 BindRow();
                 SaveType = 2;
                 btnDelete.Enabled = true;
-                if (LoadTypeID == 1) btnSelect.Enabled = true;
-
-                if (e.ColumnIndex == 0)
-                {
-                    frmCostumersBuyList frmCostumersBuyList = new frmCostumersBuyList();
-                    frmCostumersBuyList.ShowDialog();
-                }
-               
             }
             catch (Exception ex)
             {
@@ -381,39 +331,41 @@ namespace Hospital.Forms.Operations
         }
 
         private void btnSelectCustomers_Click(object sender, EventArgs e)
-        {
-            BasicInformation.frmCustomers frmCustomers = new BasicInformation.frmCustomers();
-            BasicInformation.frmCustomers.CustomerTypeID = 3;
-            BasicInformation.frmCustomers.LoadTypeID = 1;
-            frmCustomers.FormClosed += frmCustomers_Closed;
-            frmCustomers.ShowDialog();
+        {          
+            frmPaziresh frmPaziresh = new frmPaziresh();
+            frmPaziresh.LoadTypeID = 1;
+            frmPaziresh.FormClosed += frmPaziresh_Closed;
+            frmPaziresh.ShowDialog();
         }
 
-        private void frmCustomers_Closed(object sender, FormClosedEventArgs e)
+        private void frmPaziresh_Closed(object sender, FormClosedEventArgs e)
         {
             try
             {
-                BasicInformation.frmCustomers.CustomerTypeID = 0;
-                BasicInformation.frmCustomers.LoadTypeID = 0;
-                txtCustomerName.Text = BasicInformation.frmCustomers.tblCustomer.Name + " " + BasicInformation.frmCustomers.tblCustomer.LastName;
-         
+                txtBimarName.Text = frmPaziresh.tblPaziresh.NameBimar + " " + frmPaziresh.tblPaziresh.LastNameBimar;
+                frmPaziresh.LoadTypeID = 0;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
         }
-
-        private void btnSelect_Click(object sender, EventArgs e)
+                
+ 
+        private void txtPrice__TextChanged(object sender, EventArgs e)
         {
-            if (tblCustomerBuy.CustomerBuyID == 0)
+            try
             {
-                FarsiMessagbox.Show(ClsMessage.Error + "\n" + "رکوردی انتخاب نشده است", "خطا", FMessageBoxButtons.Ok, FMessageBoxIcon.Error);
-                return;
+                if (((TextBox)sender).Text != String.Empty)
+                {
+                    ((TextBox)sender).Text = String.Format("{0:N0}", double.Parse(((TextBox)sender).Text.Replace(",", "")));
+                    ((TextBox)sender).Select(((TextBox)sender).TextLength, 0);
+                }
             }
-            SaveType = 1;
-            LoadTypeID = 0;
-            this.Close();
+            catch (Exception)
+            {
+            }
         }
-
+           
+         
     }
 }
