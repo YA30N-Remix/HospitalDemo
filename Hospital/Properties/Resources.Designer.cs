@@ -63,16 +63,6 @@ namespace Hospital.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _1 {
-            get {
-                object obj = ResourceManager.GetObject("1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap booklet {
             get {
                 object obj = ResourceManager.GetObject("booklet", resourceCulture);
@@ -96,16 +86,6 @@ namespace Hospital.Properties {
         internal static System.Drawing.Bitmap browser {
             get {
                 object obj = ResourceManager.GetObject("browser", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Carpet_Cleaning_Middlesbrough {
-            get {
-                object obj = ResourceManager.GetObject("Carpet-Cleaning-Middlesbrough", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -326,16 +306,6 @@ namespace Hospital.Properties {
         internal static System.Drawing.Bitmap swatches {
             get {
                 object obj = ResourceManager.GetObject("swatches", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Taylor_Howes_Kensington_Penthouse_1_1_3000x1680 {
-            get {
-                object obj = ResourceManager.GetObject("Taylor-Howes-Kensington-Penthouse-1-1-3000x1680", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
